@@ -1,1 +1,2 @@
 # somakanyasi
+módsítom meg
