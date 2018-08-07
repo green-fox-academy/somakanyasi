@@ -28,4 +28,3 @@ function makingMatches (arr1: string [], arr2: string []) {
 console.log(makingMatches(girls, boys));
 
 export = makingMatches;
-
