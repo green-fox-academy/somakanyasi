@@ -10,14 +10,16 @@ const ctx = canvas.getContext('2d');
 // draw 3 lines with that function. Use loop for that.
 
 function horizontalLines (x: number, y: number) {
+    let rgbRandom = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
     ctx.beginPath();
-    ctx.strokeStyle = 'black';
+    ctx.strokeStyle = rgbRandom;
     ctx.moveTo(x, y);
-    ctx.lineTo(x + 50, y);
+    ctx.lineTo(x, y + 50);
     ctx.stroke();
 }
 
 for (let i: number = 0; i < 3; i++) {
+    let rgbRandom = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
     let a: number = Math.floor(Math.random() * canvas.width);
     let b: number = Math.floor(Math.random() * canvas.height);
     horizontalLines(a, b);

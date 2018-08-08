@@ -11,9 +11,9 @@ const ctx = canvas.getContext('2d');
 
 
 function toCenter(x: number, y: number) {
-    let colors: string [] = ['red', 'green', 'blue', 'purple', 'pink', 'yellow', 'orange', 'brown', 'black']
+    let rgbRandom = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
     ctx.beginPath();
-    ctx.strokeStyle = colors[Math.floor(Math.random() * colors.length)]; 
+    ctx.strokeStyle = rgbRandom;
     ctx.moveTo(x, y);
     ctx.lineTo(canvas.width / 2, canvas.height / 2);
     ctx.stroke();
