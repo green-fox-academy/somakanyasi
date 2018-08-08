@@ -11,6 +11,8 @@ let x: number = 20;
 
 function purpleSteps (size: number) {
     for (let i: number = 1; i < canvas.height; i++) {
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(i * size, i* size, size, size);
         ctx.fillStyle = 'purple';
         ctx.fillRect(i * size, i* size, size, size)
     }
