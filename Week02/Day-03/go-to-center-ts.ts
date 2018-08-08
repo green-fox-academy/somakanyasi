@@ -19,7 +19,7 @@ function toCenter(x: number, y: number) {
     ctx.stroke();
 }
 
-for (let i: number = 0; i < 10; i++) {
+for (let i: number = 0; i < 100; i++) {
     let a: number = Math.floor(Math.random() * canvas.width);
     let b: number = Math.floor(Math.random() * canvas.height);
     toCenter(a, b);

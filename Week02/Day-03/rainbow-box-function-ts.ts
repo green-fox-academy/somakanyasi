@@ -13,7 +13,7 @@ const ctx = canvas.getContext('2d');
 let colors: string [] = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
 let a: number = canvas.height;
-let distance: number = 20;
+let distance: number = 30;
 
 function rainbowBoxes (input: number, color: string) {
     let period = a / distance;
