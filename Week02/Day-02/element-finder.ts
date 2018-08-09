@@ -7,14 +7,32 @@
 const numbers: number[] = [1, 2, 3, 4, 5, 6, 8];
 
 function containingSeven (input: any []) {
-    if (input.indexOf )
+    if (input.indexOf(7) === -1){
+        console.log('Noooooo');
+    } else {
+        console.log('Hooorray');
+    }
 }
 
-console.log(containsSeven(numbers));
+containingSeven(numbers);
 
 
 // The output should be: "Noooooo"
 // Do this again with a different solution using different list functions!
 
 
-export = containsSeven;
+//with the 'every' function
+function includingSeven (eachElement){
+    return eachElement !== 7;
+}
+
+console.log(numbers.every(includingSeven));
+
+
+
+//with the some function
+let answer = function(element){
+    return element == 7;
+}
+
+console.log(numbers.some(answer));
