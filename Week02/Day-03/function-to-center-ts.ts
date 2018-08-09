@@ -22,11 +22,11 @@ function everythingToCenter(x: number, y: number) {
     }
 
     for (let j: number = 0; j < canvas.height / dist; j++) {
-            ctx.beginPath();
-            ctx.moveTo(x, y + (dist * j));
-            ctx.lineTo(canvas.width / 2, canvas.height / 2);
-            ctx.stroke();
-       
+        ctx.beginPath();
+        ctx.moveTo(x, y + (dist * j));
+        ctx.lineTo(canvas.width / 2, canvas.height / 2);
+        ctx.stroke();
+
     }
 
     for (let k: number = 0; k < canvas.height / dist; k++) {

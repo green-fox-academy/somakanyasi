@@ -7,7 +7,7 @@
 
 
 
-let animals = ['koal' , 'pand' , 'zebr'];
+let animals: string [] = ['koal' , 'pand' , 'zebr'];
 
 animals.forEach(function(animals) {
     console.log(animals + 'a');

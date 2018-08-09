@@ -11,6 +11,9 @@ function appendA (list: string []){
     })
 }
 
+
+
+
 console.log(appendA(far));
 
 // The output should be: 'boa', 'anaconda', 'koala', 'panda', 'zebra'

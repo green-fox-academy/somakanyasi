@@ -14,8 +14,9 @@ function printParams (...myParameter: any[]) {
 }
 printParams(23, 'szia', 'lécci múkodj', 41);
 
-//ha nem egymás alá szeretnénk kiírni a lista tartalmát akkor nem kell a for loop
 
+
+//ha nem egymás alá szeretnénk kiírni a lista tartalmát akkor nem kell a for loop
 
 function printParams2 (...myParameter: any[]) {
         console.log(myParameter);
