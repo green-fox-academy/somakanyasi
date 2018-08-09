@@ -6,9 +6,7 @@ const accounts: any[] = [
   { clientName: 'Sergei', accountNumber: 23456311, balance: 1353600.0 }
 ];
 
-// Create function that returns the name and balance of cash on an account in a list
-// getNameAndBalance(11234543);
-// should return: ['Igor', 203004099.2]
+
 // Create function that transfers an amount of cash from one account to another
 // it should have four parameters:
 //  - the accounts
@@ -26,12 +24,22 @@ const accounts: any[] = [
 //]
 
 
-function getNameAndBalance(myObject: any []) {
-    console.log(myObject[0]['clientName'], myObject[0]['balance']);
+
+// Create function that returns the name and balance of cash on an account in a list
+// getNameAndBalance(11234543);
+// should return: ['Igor', 203004099.2]
+
+function getNameAndBalance(myObject: any[][], accNum: number) {
+  let selectedClient: any[][] = [];
+  for (let i: number = 0; i < myObject.length; i++) {
+    if (myObject[i]["accountNumber"] === accNum) {
+      selectedClient.push(myObject[i]['clientName'], myObject[i]['balance']);
+    }
+  }
+  return selectedClient;
 }
 
-getNameAndBalance(accounts);
+console.log(getNameAndBalance(accounts, 11234543));
 
-function transferAmount (myAccounts: any, sender: number, receiver: number, cashAmount: number) {
-    
-}
+//function transferAmount (myAccounts: any, sender: number, receiver: number, cashAmount: number) {   
+//}

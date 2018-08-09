@@ -20,9 +20,9 @@ let hashmap = {
   3: 'say goodbye '
 };
 
-for ( let i: number; i < notSoCrypticMessage.length; i++) {
+for ( let i: number = 0; i < notSoCrypticMessage.length; i++) {
     let decryptedMessage = notSoCrypticMessage[i];
     out += hashmap[decryptedMessage];
 }
 
-console.log(out)
+console.log(out);
