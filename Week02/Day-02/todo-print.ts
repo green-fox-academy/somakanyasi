@@ -14,7 +14,7 @@
 
 
 let todoText: string = ' - Buy milk\n';
-let todoList: string = 'My todo: ${after}';
-let toDo: string = todoList.concat('- Download games');
+
+let toDo: string = 'My todo:\n' + todoText.slice(0) + ' - Download games\n' + '    -Diablo';
 
 console.log(toDo);
