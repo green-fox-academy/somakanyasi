@@ -1,10 +1,31 @@
 'use strict';
 
 const accounts: any[] = [
-  { clientName: 'Igor', accountNumber: 11234543, balance: 203004099.2 },
-  { clientName: 'Vladimir', accountNumber: 43546731, balance: 5204100071.23 },
-  { clientName: 'Sergei', accountNumber: 23456311, balance: 1353600.0 }
+  { clientName: 'Igor', accountNumber: 11234543, balance: 10000 },
+  { clientName: 'Vladimir', accountNumber: 43546731, balance: 20000 },
+  { clientName: 'Sergei', accountNumber: 23456311, balance: 30000 }
 ];
+
+
+// Create function that returns the name and balance of cash on an account in a list
+// getNameAndBalance(11234543);
+// should return: ['Igor', 203004099.2]
+
+
+let searchedAccount: number = 23456311;
+
+function getNameAndBalance(myAccounts: any[][], accNum: number) {
+  let selectedClient: any[][] = [];
+  for (let i: number = 0; i < myAccounts.length; i++) {
+    if (myAccounts[i]["accountNumber"] === accNum) {
+      selectedClient.push(myAccounts[i]['clientName'], myAccounts[i]['balance']);
+    }
+
+  }
+  return selectedClient;
+}
+
+console.log(getNameAndBalance(accounts, searchedAccount));
 
 
 // Create function that transfers an amount of cash from one account to another
@@ -25,21 +46,42 @@ const accounts: any[] = [
 
 
 
-// Create function that returns the name and balance of cash on an account in a list
-// getNameAndBalance(11234543);
-// should return: ['Igor', 203004099.2]
+let theSender: number = 43546731;
+let theReceiver: number = 23456311;
+let amountOfMoney: any = 500;
 
-function getNameAndBalance(myObject: any[][], accNum: number) {
+//let newBalance: any [][] = accounts[0]['balance'] - amountOfMoney;
+//console.log(newBalance);
+
+/*
+function getAccountID(myAccounts: any[][], accNumSender: number, accNumReceiver) {
   let selectedClient: any[][] = [];
-  for (let i: number = 0; i < myObject.length; i++) {
-    if (myObject[i]["accountNumber"] === accNum) {
-      selectedClient.push(myObject[i]['clientName'], myObject[i]['balance']);
+  for (let i: number = 0; i < myAccounts.length; i++) {
+    if (myAccounts[i]["accountNumber"] !== accNumSender || myAccounts[i]["accountNumber"] !== accNumSender) {
+      console.log('404 account not found');
     }
+  
   }
   return selectedClient;
 }
 
-console.log(getNameAndBalance(accounts, 11234543));
+console.log(getNameAndBalance(accounts, searchedAccount));
+*/
 
-//function transferAmount (myAccounts: any, sender: number, receiver: number, cashAmount: number) {   
-//}
+
+function transferAmount(myAccounts: any, sender: number, receiver: number, cashAmount: number) {
+    for (let i: number = 0; i < myAccounts.length; i++) {
+      if (sender === myAccounts[i]['accountNumber']) {
+        myAccounts[i]['balance'] -= cashAmount;
+      }
+    }
+    for (let j: number = 0; j < myAccounts.length; j++) {
+      if (receiver === myAccounts[j]['accountNumber']) {
+        myAccounts[j]['balance'] += cashAmount;
+      }
+    }
+  return myAccounts;
+}
+
+console.log(transferAmount(accounts, theSender, theReceiver, amountOfMoney));
+

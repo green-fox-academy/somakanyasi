@@ -13,3 +13,5 @@ let newExample = example.replace(re , 'galaxy');
 console.log(newExample);
 
 export = example;
+
+console.log('The string after replacement: ' + example.replace('dishwasher', 'galaxy'));

@@ -15,11 +15,18 @@
 // ** Relax, a matrix is just like an array
 
 
-let matrix: number [] [] = [
-    [0, 0, 0, 1],
-    [0, 0, 1, 0],
-    [0, 1, 0, 0],
-    [1, 0, 0, 0]
-];
+let matrix: number [] [] = [];
+let numberOfLines: number = 5;
+
+for (let i = 0; i < numberOfLines; i++) {
+    matrix[i]=[]
+    for (let j = 0; j < numberOfLines; j++) {
+        if (j===numberOfLines-i-1) {
+            matrix[i][j]=1;
+        } else {
+            matrix[i][j]=0;
+        }
+    }
+}
 
 console.log(matrix);

@@ -16,19 +16,3 @@ function putSaturn (newPlanetList: string []) {
 }
 
 console.log(putSaturn(planetList));
-
-
-
-
-
-//planetList.splice(5, 0, 'Satrun');
-
-//console.log(planetList);
-
-
-
-/*
-console.log(putSaturn(planetList));
-
-export = putSaturn;
-*/

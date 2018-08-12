@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 // Fill the canvas with a checkerboard pattern.
 
-let a: number = 15;
+let a: number = 5;
 
 
 function checkerBoard(size: number) {

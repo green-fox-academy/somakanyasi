@@ -5,12 +5,16 @@
 // -  Print the fourth element as a test
 
 
+
 let numList: number [] = [1, 2, 3, 8, 5, 6];
 
+//  with the splice method
+//  numList.splice(3, 1, 4);
+//  console.log(numList[3]);
 
-let newList = numList.map(function (newList) {
-    return [1, 2, 3, 4, 5, 6];
-})
 
-console.log(newList);
+let newlist: number [] = numList.map(function(element: number){
+    return element / 2;
+});
 
+console.log(newlist[3]);

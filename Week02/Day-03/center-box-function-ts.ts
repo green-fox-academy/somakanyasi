@@ -34,4 +34,4 @@ function threeSquares (num: number) {
         ctx.fillRect(canvas.width / 2 - size/2, canvas.height / 2 - size/2, size, size);
     }
 }
-threeSquares(a)
+threeSquares(a);

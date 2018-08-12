@@ -17,4 +17,4 @@ function greet (par?: string) {
     console.log("Greetings, dear " + par);
 }
 
-greet();
+greet(name);

@@ -6,8 +6,8 @@
 let far: string[] = ['bo', 'anacond', 'koal', 'pand', 'zebr'];
 
 function appendA (list: string []){
-    return list.map(function(list){
-        return list + 'a';
+    return list.map(function(input){
+        return input + 'a';
     })
 }
 

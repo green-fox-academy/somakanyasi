@@ -14,9 +14,9 @@ let colors: string [] = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
 let a: number = canvas.height;
 let distance: number = 30;
+let period = a / distance;
 
 function rainbowBoxes (input: number, color: string) {
-    let period = a / distance;
     for (let i: number = 0; i < period; i++) {
         let size = input - (i * distance);
         ctx.fillStyle = colors[i % colors.length];
