@@ -65,7 +65,7 @@ function getJustSixes(diceSet: DiceSet) {
     }
     counter ++;
   };
-  return `After ${counter} number of rolls we finally got the [${diceSet.dices}].`;
+  return `After ${counter} rolling the dices, we finally got the [${diceSet.dices}].`;
 }
 
 console.log(getJustSixes(diceSet));
