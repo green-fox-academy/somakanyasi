@@ -1,3 +1,5 @@
+'use strict';
+
 // Given a string, compute recursively (no loops) a new string where all the
 // lowercase 'x' chars have been changed to 'y' chars.
 
@@ -11,3 +13,4 @@ function makingYsOutOfXs(inputString: string, xLetters: string, yLetters: string
 }
 
 console.log(makingYsOutOfXs('xoxoxoxoxo', 'x', 'y'));
+
