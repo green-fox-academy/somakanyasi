@@ -17,7 +17,7 @@ export class Student extends Person {
     console.log('Be a junior software developer');
   }
   introduce(){
-    console.log(super.getIntroduction() + ` from ${this.previousOrganization}, who skipped ${this.skippedDays} days from the course already.`);
+    console.log(`${super.getIntroduction()} from ${this.previousOrganization}, who skipped ${this.skippedDays} days from the course already.`);
   }
   skipDays(numberOfDays){
     this.skippedDays += numberOfDays;

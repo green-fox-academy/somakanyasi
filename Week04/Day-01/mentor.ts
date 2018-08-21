@@ -15,6 +15,6 @@ export class Mentor extends Person {
   }
 
   introduce(){
-    console.log(super.getIntroduction() + `${this.level} mentor.`);
+    console.log(`${super.getIntroduction()} ${this.level} mentor.`);
   }
 }

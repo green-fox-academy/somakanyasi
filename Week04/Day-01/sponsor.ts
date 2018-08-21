@@ -13,7 +13,7 @@ export class Sponsor extends Person {
   }
 
   introduce(){
-    console.log(super.getIntroduction + `, who represents ${this.company} and hired ${this.hiredStudents}`);
+    console.log(`${super.getIntroduction()}, who represents ${this.company} and hired ${this.hiredStudents}`);
   }
 
   hire(){

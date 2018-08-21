@@ -10,7 +10,7 @@ export class Person {
     this.gender = gender;
   }
   introduce(){
-    console.log(this.getIntroduction + '.');
+    console.log(this.getIntroduction() + '.');
   }
   getIntroduction(){
     return `Hi I'm ${this.name}, a ${this.age} year old ${this.gender}`
