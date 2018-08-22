@@ -4,12 +4,21 @@ import { Instrument } from "./instruments";
 
 export abstract class StringedInstrument extends Instrument {
   protected numberOfStrings: number;
-  
-  sound(){
+
+  sound() {
     return `a ${this.numberOfStrings} stringed instrument`
   };
 
-  play(){
+  play() {
     return `${this.name} ${this.sound()}`;
   }
+
+  //other solution:
+  /*
+  abstract sound(): void;
+
+  play(){
+    this.sound();
+  }
+  */
 }

@@ -16,4 +16,12 @@ export class ElectricGuitar extends StringedInstrument {
   play() {
     return `${super.play()} which makes the sound: ${this.soundOfTheInstrument}.`
   }
+  
+
+  //other solution
+  /*
+  sound() {
+    console.log(`${this.name} a ${this.numberOfString} stringed instrument, which makes the sound: ${this.soundOfTheInstrument}`)
+  }
+  */
 }
