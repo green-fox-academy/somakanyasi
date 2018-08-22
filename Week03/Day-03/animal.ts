@@ -7,13 +7,15 @@ class Animal{
         this.thirst = 50;
         this.hunger = 50;
     }
-    eat(){
+    eat(): number{
         this.hunger -= 1;
-        return console.log('The' + this.nameOfTheAnimalmal + '\'s hunger is now: ' + this.hunger);
+        console.log('The' + this.nameOfTheAnimalmal + '\'s hunger is now: ' + this.hunger);
+        return this.hunger;
     }
-    drink(){
+    drink(): number{
         this.thirst -= 1;
-        return console.log('The ' + this.nameOfTheAnimalmal + '\'s thirst is now: ' + this.thirst);        
+        console.log('The ' + this.nameOfTheAnimalmal + '\'s thirst is now: ' + this.thirst);        
+        return this.thirst;
     }
     play(){
         this.hunger ++;
@@ -31,8 +33,3 @@ let SandLizard: Animal = new Animal('SandLizard', 20, 10)
 Mockingjay.play();
 Armadillo.drink();
 SandLizard.eat();
-
-
-
-
-console.log(Armadillo.hunger);

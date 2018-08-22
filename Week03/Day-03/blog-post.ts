@@ -9,7 +9,6 @@ class BlogPost {
         this.text = text;
         this.publicationDate = publicationDate;
     }
-
 }
 
 let firstText: string = 'Lorem ipsum dolor sit amet.';

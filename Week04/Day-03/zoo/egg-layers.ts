@@ -2,10 +2,12 @@ import { Animal } from "./animal";
 
 'use strict';
 
-export abstract class Egglayers extends Animal {
+export class Egglayers extends Animal {
+  breed(): string {
+    return this.breedWithEggs();
+  }
   
   breedWithEggs(): string {
     return 'laying eggs';
   }
-
 }

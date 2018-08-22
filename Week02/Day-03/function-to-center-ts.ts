@@ -18,24 +18,19 @@ function everythingToCenter(x: number, y: number) {
         ctx.moveTo(x + (dist * i), y);
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.stroke();
-
     }
-
     for (let j: number = 0; j < canvas.height / dist; j++) {
         ctx.beginPath();
         ctx.moveTo(x, y + (dist * j));
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.stroke();
-
     }
-
     for (let k: number = 0; k < canvas.height / dist; k++) {
         ctx.beginPath();
         ctx.moveTo(canvas.width, y + (dist * k));
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.stroke();
     }
-
     for (let i: number = 0; i <= canvas.width / dist; i++) {
         ctx.beginPath();
         ctx.moveTo(x + (dist * i), canvas.height);

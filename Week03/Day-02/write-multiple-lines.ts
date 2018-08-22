@@ -18,8 +18,8 @@ const charEncoding = 'utf-8';
 
 
 let myFileName: string = 'hell.txt'
-let myWord: string = ' Kishaver';
-let myNumber: number = 5;
+let myWord: string = 'Szia Bánky!';
+let myNumber: number = 3;
 
 function writer(path: string, word: string, number: number) {
     try {
