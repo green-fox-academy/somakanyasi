@@ -25,8 +25,9 @@ test('Test if the sum method works with a null element list', (test) => {
   test.end();
 });
 
+// this test is useless
 test('Test if the sum method works with a string element', (test) => {
-  test.equal(stringElement.sum(), '0haligali', 'Soma method is working like a mothafucka!');
+  test.throw(stringElement.sum(), '0haligali', 'Soma method is working like a mothafucka!');
   test.end();
 });
 

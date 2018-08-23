@@ -3,7 +3,7 @@
 export class SumClass {
   protected listOfNumbers: any [];
 
-  constructor(listOfNumbers: any []){
+  constructor(listOfNumbers: number []){
     this.listOfNumbers = listOfNumbers;
   }
   sum(listOfNumbers?): any {
@@ -20,4 +20,7 @@ export let emptyList = new SumClass([]);
 export let listWithOneElement = new SumClass ([5]);
 export let nullElement = new SumClass ([null]);
 export let stringElement = new SumClass (['hali', 'gali']);
+
+console.log(stringElement.sum());
+
 
