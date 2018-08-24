@@ -1,20 +1,23 @@
 'use strict';
 
-let string1 = 'barbanegra';
+export let myString = `barbanegra`;
 
 
-function countLetters (inputString: string) {
+export function countLetters (inputString: string) {
   let letters: any [] = [];
   let counter: any [] = [];
   let dictionary = {};
   let sortedString = inputString.split('').sort().join('');
-  for(let i: number = 0; i < sortedString.length + 4; i++) {
+  for(let i: number = 0; i < inputString.length; i++) {
     letters.push(sortedString.slice(0, sortedString.lastIndexOf(sortedString.charAt(0)) + 1 ));
     counter.push(letters[i].length);
     sortedString = sortedString.substr(sortedString.lastIndexOf(sortedString.charAt(0)) + 1 );
   }
-
-  letters.forEach((letters, i) => dictionary[letters] = counter[i]);
+  
+  letters.forEach((letters, i) => {
+    if (letters[i] !== '' && counter[i] !== 0) {
+      dictionary[letters] = counter[i];
+    }});
 
   console.log(counter);
   console.log(letters);
@@ -23,17 +26,17 @@ function countLetters (inputString: string) {
   
 }
 
-console.log(countLetters(string1));
+console.log(countLetters(myString));
 
 
 
-let sortedString = string1.split('').sort().join('');
 
+console.log(myString.split('').sort().join(''));
 
-/*
-console.log(string1.split('').sort().join(''));
+let sortedString = myString.split('').sort().join('');
 
 console.log(sortedString.slice(0, sortedString.lastIndexOf(sortedString.charAt(0)) + 1 ));
+/*
 
 ///////////////////------------------------------------------------------///////////////////////
 
@@ -51,4 +54,3 @@ console.log(sortedString.slice(0, sortedString.lastIndexOf(sortedString.charAt(0
   } else {
     return null;
 */
-
