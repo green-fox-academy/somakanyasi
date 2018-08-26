@@ -13,46 +13,31 @@ const charEncoding = 'utf-8';
 // Write a function that returns the GET / POST request ratio.
 
 
-//how to use the path of the file?
-//path to the log.txt file: teaching-materials/workshop/file-manipulations/logs/log.txt
-
-/*let pathToFile = ' ../teaching-materials/workshop/file-manipulations/logs/log.txt';
-
-function readFromRemoteRepo(inputPath: string,): string {
-    try {
-        return fs.readFileSync(inputPath, charEncoding);
-    } catch (error) {
-        console.log(error.message);
-        return null;
-    }
-}
-
-readFromRemoteRepo(pathToFile);
-*/
-
-function readFromFile (inputFileName: string): string{
+function readFromFile(inputFileName: string): string {
     return fs.readFileSync('log.txt', charEncoding);
 }
 
-/*
-function uniqueIPAddresses(inputList: string): any [] {
-    let uniqueIPs: any [] = [];
-    let arrayFromInput: any [] = readFromFile(inputList).split('\n');
-    
 
-    return ;
+function uniqueIPAddresses(inputList: string): any[] {
+    let ipArray: any[] = readFromFile(inputList).match(/([0-9]{1,3}[\.]){3}[0-9]{1,3}/ig);     //match method returns with an array
+    let uniqueIpArray: string[] = ipArray.filter(function (value, index, self) {
+        return self.indexOf(value) === index;
+    });
+    return uniqueIpArray;
 }
-*/
 
-function getPostRatioCounter (inputFile: string) {
-    let ContentOfFile: string [] = readFromFile(inputFile).split('\n');
+console.log(uniqueIPAddresses('log.txt'));
+
+
+function getPostRatioCounter(inputFile: string) {
+    let ContentOfFile: string[] = readFromFile(inputFile).split('\n');
     let getCount: number = 0;
     let postCount: number = 0;
     ContentOfFile.forEach(element => {
         if (element.toString().match(/GET/) === null) {
-            postCount ++;
+            postCount++;
         } else {
-            getCount ++;
+            getCount++;
         }
     });
     console.log(getCount);
