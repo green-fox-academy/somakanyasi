@@ -2,6 +2,7 @@ class Sharpie {
     private color: string;
     private width: number;
     private inkAmount: number;
+    
     constructor(color: string, width: number){
         this.color = color;
         this.width = width;
