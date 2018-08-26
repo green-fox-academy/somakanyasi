@@ -9,7 +9,7 @@ class Students {
 }
 class Teachers {
     teach(toTeach){
-        toTeach.learn
+        toTeach.learn();
     }
     answer(){
         console.log('Ne kérdezz hülyeségeket fiam! Ez egy 1-es lesz.');
