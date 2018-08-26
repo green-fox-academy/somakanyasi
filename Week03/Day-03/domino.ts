@@ -4,5 +4,4 @@ class Domino {
         this.values = [valueA, valueB];
     }
 }
-
 export {Domino};
