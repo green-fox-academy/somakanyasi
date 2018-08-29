@@ -5,53 +5,81 @@ import { Tree } from './tree';
 import { Plant } from './plant';
 
 export class Garden {
-  private listOfFlowers: Flower [];
-  private listOfTrees: Tree [];
+  private listOfFlowers: Flower[];
+  private listOfTrees: Tree[];
 
-  constructor(){
+  constructor() {
     this.listOfFlowers = [];
     this.listOfTrees = [];
   }
 
   addFlowers(flower) {
-    let newFlower: Flower = new Flower (flower);
-    this.listOfFlowers.push(newFlower);
+    this.listOfFlowers.push(flower);
   }
 
   addTrees(tree) {
-    let newTree: Tree = new Tree (tree);
-    this.listOfTrees.push(newTree);
+    this.listOfTrees.push(tree);
   }
 
-  checkForDryingOut() {
-    let plantsToWater: any [] = [];
-    this.listOfFlowers.forEach(function(flower: Flower){
+  checkForDryingOut(): Plant[] {
+    let plantsToWater: Plant[] = [];
+    this.listOfFlowers.forEach((flower: Flower) => {
       if (flower.getNeedWater()) {
         plantsToWater.push(flower);
-        let asd = flower as Flower;
-        console.log(`The ${asd.getFlowerColor()} Flower needs water`);
+        //console.log(`The ${flower.getColor()} Flower needs water`);
       }
     });
-    this.listOfTrees.forEach(function(tree){
+    this.listOfTrees.forEach(function (tree) {
       if (tree.getNeedWater()) {
         plantsToWater.push(tree);
-        console.log(`The ${tree.getColor().toString()} Tree needs water`);
+        //console.log(`The ${tree.getColor()} Tree needs water`);
       }
     });
+    //console.log(plantsToWater);
     return plantsToWater;
-    
   }
 
-  watering (theAmountOfWater: number) {
-    let amountForOne: number = theAmountOfWater / this.checkForDryingOut().length;
-    this.checkForDryingOut().forEach((element) => {
-      element.setWaterlevel(amountForOne * element.getWaterAbsorb());
-    });
+  watering(theAmountOfWater: number): Plant[] {
+    let plantsToWater: any[] = this.checkForDryingOut();
+    let newPlantsToWater: Plant[];
+    let amountForOne: number = theAmountOfWater / plantsToWater.length;
+    console.log(amountForOne)
+    for (let i: number = 0; i < plantsToWater.length; i++) {
+      if (plantsToWater[i]['type'] === 'flower' && plantsToWater[i]['waterLevel'] >= 5) {
+        plantsToWater[i]['needWater'] = false;
+      } else if (plantsToWater[i]['type'] === 'flower' && plantsToWater[i]['waterLevel'] < 5) {
+        plantsToWater[i]['waterLevel'] = amountForOne * plantsToWater[i]['waterAbsorb'];
+        if (plantsToWater[i]['type'] === 'flower' && plantsToWater[i]['waterLevel'] >= 5) {
+          plantsToWater[i]['needWater'] = false;
+        }
+      } else if (plantsToWater[i]['type'] === 'tree' && plantsToWater[i]['waterLevel'] >= 10) {
+        plantsToWater[i]['needWater'] = false;
+      } else if (plantsToWater[i]['type'] === 'tree' && plantsToWater[i]['waterLevel'] < 10) {
+        plantsToWater[i]['waterLevel'] = amountForOne * plantsToWater[i]['waterAbsorb'];
+        if (plantsToWater[i]['type'] === 'tree' && plantsToWater[i]['waterLevel'] >= 10) {
+          plantsToWater[i]['needWater'] = false;
+        }
+      }
+    }
+    //console.log(plantsToWater);
+    return plantsToWater;
   }
 
-  printGarden() {
-    console.log(`In my garden there are these flowers: ${this.listOfFlowers}
-    and these trees: ${this.listOfTrees}`);
+  printStatus() {
+    this.listOfFlowers.forEach((element) => {
+      if (element['needWater'] === false) {
+        console.log(`The ${element['color']} Flower doens't need water`);
+      } else {
+        console.log(`The ${element['color']} Flower needs water`);
+      }
+    })
+
+    this.listOfTrees.forEach((element) => {
+      if (element['needWater'] === false) {
+        console.log(`The ${element['color']} Tree doesn't need water`)
+      } else {
+        console.log(`The ${element['color']} Tree needs water`);
+      }
+    })
   }
 }
-
