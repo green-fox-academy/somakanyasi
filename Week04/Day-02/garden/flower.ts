@@ -10,18 +10,10 @@ export class Flower extends Plant {
     } else {
       throw new Error ('You can only choose yellow or blue flowers buddy.');
     }
-    if (this.waterLevel <= 5) {
+    if (this.waterLevel < 5) {
       this.needWater = true;
     } else {
       this.needWater = false;
-    }
-  }
-
-  getFlowerColor() {
-    if (this.color = 'yellow') {
-      return 'yellow';
-    } else {
-      return 'blue'
     }
   }
 }

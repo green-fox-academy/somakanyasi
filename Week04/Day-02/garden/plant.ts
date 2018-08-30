@@ -14,29 +14,7 @@ export class Plant {
     this.waterAbsorb = waterAbsorb;
     this.needWater = needWater;
   }
-
-  getColor(): string {
-    return this.color;
-  }
-  
-  getWaterLevel(): number {
-    return this.waterLevel;
-  }
-
   getNeedWater(): boolean {
     return this.needWater;
   }
-  
-  getWaterAbsorb(): number {
-    return this.waterAbsorb;
-  }
-
-  setWaterLevel(waterLevel: number): void {
-    this.waterLevel = waterLevel;
-  }
-
-  setNeedWater(needWater: boolean): void {
-    this.needWater = needWater;
-  }
-  
 }

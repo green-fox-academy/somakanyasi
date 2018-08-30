@@ -26,16 +26,13 @@ export class Garden {
     this.listOfFlowers.forEach((flower: Flower) => {
       if (flower.getNeedWater()) {
         plantsToWater.push(flower);
-        //console.log(`The ${flower.getColor()} Flower needs water`);
       }
     });
     this.listOfTrees.forEach(function (tree) {
       if (tree.getNeedWater()) {
         plantsToWater.push(tree);
-        //console.log(`The ${tree.getColor()} Tree needs water`);
       }
     });
-    //console.log(plantsToWater);
     return plantsToWater;
   }
 
@@ -43,7 +40,7 @@ export class Garden {
     let plantsToWater: any[] = this.checkForDryingOut();
     let newPlantsToWater: Plant[];
     let amountForOne: number = theAmountOfWater / plantsToWater.length;
-    console.log(amountForOne)
+    //console.log(amountForOne)
     for (let i: number = 0; i < plantsToWater.length; i++) {
       if (plantsToWater[i]['type'] === 'flower' && plantsToWater[i]['waterLevel'] >= 5) {
         plantsToWater[i]['needWater'] = false;
@@ -61,7 +58,6 @@ export class Garden {
         }
       }
     }
-    //console.log(plantsToWater);
     return plantsToWater;
   }
 

@@ -10,7 +10,7 @@ export class Tree extends Plant {
     } else {
       throw new Error ('You can only choose purple or orange flowers buddy.');
     }
-    if (this.waterLevel <= 10) {
+    if (this.waterLevel < 10) {
       this.needWater = true;
     } else {
       this.needWater = false;
