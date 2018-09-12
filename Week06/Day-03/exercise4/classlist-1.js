@@ -23,4 +23,4 @@ myPs[0].classList.add('red');
 
 // Make balloon less balloon-like (change its shape)
 
-myPs[1].setAttribute('style', 'border-radius: 1%');
+myPs[1].style.borderRadius = '1%';
