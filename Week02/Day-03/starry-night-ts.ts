@@ -64,7 +64,7 @@ function middleStar(xSmall: number, ySmall: number, color) {
 
 
 
-let c: number = Math.floor(Math.random() * canvas.width);
+let c: number = Math.floor(Math.random() * 100);
 
 
 ctx.fillStyle = "black";
@@ -85,7 +85,7 @@ function starryNight(numberOfStars: number) {
         let basicColor = Math.floor(Math.random() * 211);
         let colorsOfStars = `rgb(${basicColor}, ${basicColor}, ${basicColor})`;
         ctx.fillStyle = colorsOfStars;
-        smallStar(a, b, colorsOfStars);
+        middleStar(a, b, colorsOfStars);
     }
 }
 

@@ -38,9 +38,8 @@ export class Garden {
 
   watering(theAmountOfWater: number): Plant[] {
     let plantsToWater: any[] = this.checkForDryingOut();
-    let newPlantsToWater: Plant[];
     let amountForOne: number = theAmountOfWater / plantsToWater.length;
-    //console.log(amountForOne)
+    console.log(`Watering with ${theAmountOfWater}`);
     for (let i: number = 0; i < plantsToWater.length; i++) {
       if (plantsToWater[i]['type'] === 'flower' && plantsToWater[i]['waterLevel'] >= 5) {
         plantsToWater[i]['needWater'] = false;
@@ -58,6 +57,7 @@ export class Garden {
         }
       }
     }
+    this.printStatus();
     return plantsToWater;
   }
 

@@ -20,16 +20,13 @@ newGarden.addTrees(newTree2);
 
 //newGarden.printGarden();
 
-newGarden.checkForDryingOut();
-newGarden.watering(0);
+
 newGarden.printStatus();
 
-console.log('watering with 40');
 newGarden.watering(40);
-newGarden.printStatus();
+//newGarden.printStatus();
 
-console.log('watering with 70');
 newGarden.watering(70);
-newGarden.printStatus();
+//newGarden.printStatus();
 
 //newGarden.watering(0);

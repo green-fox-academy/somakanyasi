@@ -1,0 +1,14 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "My first nodejs http server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "somak.",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
