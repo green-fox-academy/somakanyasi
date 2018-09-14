@@ -8,11 +8,15 @@
   <link rel='stylesheet' type='text/css' href='/assets/styles.css'>
 </head>
 <body>
-<h1><%= message %></h1>
-<div class = 'container'>
-<img class = 'leftButton' src = data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC45MDYiIGhl%0D%0AaWdodD0iMjIuNzUiIHZpZXdCb3g9IjAgMCAxNC45MDYgMjIuNzUiPgogIDxkZWZzPgogICAgPHN0%0D%0AeWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICM0ZTRlNGU7CiAgICAgICAgZmlsbC1y%0D%0AdWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0i%0D%0AU2hhcGVfM19jb3B5IiBkYXRhLW5hbWU9IlNoYXBlIDMgY29weSIgY2xhc3M9ImNscy0xIiBkPSJN%0D%0AMTI5LjAxLDMxMS4xMDdhMi40NSwyLjQ1LDAsMCwxLTMuNTM2LDBMMTE0Ljg2OCwzMDAuNWwxMC42%0D%0AMDYtMTAuNjA3YTIuNSwyLjUsMCwxLDEsMy41MzYsMy41MzZsLTcuMDcxLDcuMDcxLDcuMDcxLDcu%0D%0AMDcxQTIuNDQ5LDIuNDQ5LDAsMCwxLDEyOS4wMSwzMTEuMTA3WiIgdHJhbnNmb3JtPSJ0cmFuc2xh%0D%0AdGUoLTExNC44NzUgLTI4OS4xMjUpIi8+Cjwvc3ZnPgo=>
-<img class = 'firstIMG' src = <%= picture %>>
-<img class = 'rightButton' src = data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC45MDYiIGhl%0D%0AaWdodD0iMjIuNzUiIHZpZXdCb3g9IjAgMCAxNC45MDYgMjIuNzUiPgogIDxkZWZzPgogICAgPHN0%0D%0AeWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICM0ZTRlNGU7CiAgICAgICAgZmlsbC1y%0D%0AdWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBpZD0i%0D%0AU2hhcGVfM19jb3B5IiBkYXRhLW5hbWU9IlNoYXBlIDMgY29weSIgY2xhc3M9ImNscy0xIiBkPSJN%0D%0AMTI5LjAxLDMxMS4xMDdhMi40NSwyLjQ1LDAsMCwxLTMuNTM2LDBMMTE0Ljg2OCwzMDAuNWwxMC42%0D%0AMDYtMTAuNjA3YTIuNSwyLjUsMCwxLDEsMy41MzYsMy41MzZsLTcuMDcxLDcuMDcxLDcuMDcxLDcu%0D%0AMDcxQTIuNDQ5LDIuNDQ5LDAsMCwxLDEyOS4wMSwzMTEuMTA3WiIgdHJhbnNmb3JtPSJ0cmFuc2xh%0D%0AdGUoLTExNC44NzUgLTI4OS4xMjUpIi8+Cjwvc3ZnPgo=>
-</div>
+  <h1><%= message %></h1>
+  <div class = 'container'>
+    <img class = 'leftButton' src = /assets/arrow-button.svg>
+    <img class = 'firstIMG' src = <%= picture %>>
+    <div class = 'description-box'>
+      <p>'This is the title of the picture'</p>
+      <p>'This is the description of the picture'</p>
+    </div>
+    <img class = 'rightButton' src = /assets/arrow-button.svg>
+  </div>
 </body>
 </html>

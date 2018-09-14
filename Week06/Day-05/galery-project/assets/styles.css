@@ -9,6 +9,7 @@ body {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .rightButton {
@@ -24,7 +25,12 @@ body {
 
 .firstIMG {
   width: 60%;
-  height: 33%;
+  height: 32%;
   min-width: 160px;
   min-height: 90px;
+}
+
+.description-box {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
 }
