@@ -1,5 +1,7 @@
 body {
   background-color: #dedede;
+  width: auto;
+  height: 95vh;
 }
 
 .container {
@@ -12,8 +14,17 @@ body {
 .rightButton {
   transform: rotate(180deg);
   padding: 10px;
+  background: whitesmoke;
 }
 
 .leftButton {
   padding: 10px;
+  background: whitesmoke;
+}
+
+.firstIMG {
+  width: 60%;
+  height: 33%;
+  min-width: 160px;
+  min-height: 90px;
 }
