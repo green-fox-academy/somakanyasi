@@ -1,0 +1,19 @@
+body {
+  background-color: #dedede;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rightButton {
+  transform: rotate(180deg);
+  padding: 10px;
+}
+
+.leftButton {
+  padding: 10px;
+}
