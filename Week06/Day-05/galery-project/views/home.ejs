@@ -8,15 +8,22 @@
   <link rel='stylesheet' type='text/css' href='/assets/styles.css'>
 </head>
 <body>
-  <h1><%= message %></h1>
+  <h1>My Rick and Morty Galery</h1>
   <div class = 'container'>
-    <img class = 'leftButton' src = /assets/arrow-button.svg>
+    <button class = 'leftButton'>
+      <img src = /assets/arrow-button.svg>
+    </button>
+
     <img class = 'firstIMG' src = <%= picture %>>
+
     <div class = 'description-box'>
-      <p>'This is the title of the picture'</p>
-      <p>'This is the description of the picture'</p>
+      <p class = 'desrip-title'>This is the title of the picture</p>
+      <p class = 'descrip-text'>This is the description of the picture</p>
     </div>
-    <img class = 'rightButton' src = /assets/arrow-button.svg>
+    
+    <button class = 'rightButton'>
+      <img src = /assets/arrow-button.svg>
+    </button>
   </div>
 </body>
 </html>

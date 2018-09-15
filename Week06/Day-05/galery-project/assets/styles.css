@@ -4,6 +4,12 @@ body {
   height: 95vh;
 }
 
+h1 {
+  width: auto;
+  position: center;
+  
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -31,6 +37,21 @@ body {
 }
 
 .description-box {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.418);
   position: absolute;
+  bottom: 0px;
+  width: 60%;
+  height: 25%;
+  min-width: 40px;
+  min-height: 22px;
+}
+
+p {
+  color: white;
+}
+
+.desrip-title {
+  font-family: Arial;
+  font-style: oblique;
+  font-size: larger;
 }
