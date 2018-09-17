@@ -1,5 +1,3 @@
-'use strict';
-
 window.baseUrl = "http://localhost:8080";
 $("#server_change").on("submit", function (e) {
     e.preventDefault();
@@ -12,7 +10,7 @@ handle = function handle (id, info, where, data) {
         console.log(data);
     }
     $(id).append("<li>" + info + (data ? " - check the console for the response " : "")+"</li>");
-}
+};
 $("#doubling").on("click", function () {
     $.get(window.baseUrl + "/doubling", {}).done(function (data) {
        if("error" in data && data["error"] == "Please provide an input!") {
