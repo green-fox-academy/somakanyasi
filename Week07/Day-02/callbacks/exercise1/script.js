@@ -39,7 +39,6 @@ const removeSecondLetter = (word) => {
     }
   }
   return reducedWord;
-  
 }
 
 console.log(mapWith(words, removeSecondLetter));
