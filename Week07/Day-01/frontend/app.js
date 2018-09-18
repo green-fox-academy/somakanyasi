@@ -121,8 +121,6 @@ app.post('/arrays', (req, res) => {
   }
 });
 
-let tryoutText = 'This is my example sentence. Just for fun.'
-
 function yodaConverter (inputText) {
   let inputTextToLowerCase = inputText.toLowerCase();
   let textToArray = inputTextToLowerCase.split('. ');
@@ -145,10 +143,24 @@ function yodaConverter (inputText) {
   });
   arrayWithJoinedSentences[0] = arrayWithJoinedSentences[0].replace(arrayWithJoinedSentences[0].charAt(0), arrayWithJoinedSentences[0].charAt(0).toUpperCase());
   arrayWithJoinedSentences[1] = arrayWithJoinedSentences[1].replace(arrayWithJoinedSentences[1].charAt(0), arrayWithJoinedSentences[1].charAt(0).toUpperCase()); 
-  
-  return `${arrayWithJoinedSentences[0]}. Arrgh. Uhmm. ${arrayWithJoinedSentences[1]} Err..err.err.`;
+
+  let mumbleWords = ['OMG', 'bla', 'wow', 'err', 'niff', 'brr', 'vau']
+  let randomMumble = mumbleWords[Math.floor(Math.random() * 7)];
+
+  return `${arrayWithJoinedSentences[0]}. ${randomMumble}. ${randomMumble}. ${arrayWithJoinedSentences[1]}. ${randomMumble}..${randomMumble}..${randomMumble}.`
 }
-console.log(yodaConverter(tryoutText));
+
+app.post('/sith', (req, res) => {
+  if (req.body.text) {
+    res.json({
+      sith_text: yodaConverter(req.body.text),
+    });
+  } else {
+    re.json({
+      error: "Feed me some text you have to, padawan young you are. Hmmm.",
+    });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`You're now listening to the smoothest tunes on port ${PORT}`);

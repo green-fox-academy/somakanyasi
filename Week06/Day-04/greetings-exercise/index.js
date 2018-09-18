@@ -9,10 +9,11 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   let user = 'Guest';
-  if (req.query.name !== undefined) {
+  if (req.query.name) {
     user = req.query.name;
   }
   res.render('home', {
+    title: 'Whatsup dudes!',
     header: user,
   });
 });

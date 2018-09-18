@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, p {
+  color: #3cb878;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+}

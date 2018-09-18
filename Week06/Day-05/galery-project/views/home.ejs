@@ -6,22 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Rick and Morty Galery</title>
   <link rel='stylesheet' type='text/css' href='/assets/styles.css'>
+  <script src = '/assets/script.js'></script>
 </head>
 <body>
-  <h1>My Rick and Morty Galery</h1>
+  <h1>A 100 Times Rick and Morty Forever And Ever Gallery</h1>
   <div class = 'container'>
-    <button class = 'leftButton'>
+    <button id = 'previousButton'>
       <img src = /assets/arrow-button.svg>
     </button>
 
-    <img class = 'firstIMG' src = <%= picture %>>
+    <img id = 'displayedIMG' src = <%= picture %>>
 
     <div class = 'description-box'>
-      <p class = 'desrip-title'>This is the title of the picture</p>
-      <p class = 'descrip-text'>This is the description of the picture</p>
+      <p class = 'desrip-title'><%= pictureTitle %></p>
+      <p class = 'descrip-text'><%= pictureDescrip %></p>
     </div>
-    
-    <button class = 'rightButton'>
+
+    <button id = 'nextButton'>
       <img src = /assets/arrow-button.svg>
     </button>
   </div>

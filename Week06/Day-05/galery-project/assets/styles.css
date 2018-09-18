@@ -5,9 +5,9 @@ body {
 }
 
 h1 {
-  width: auto;
-  position: center;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .container {
@@ -18,18 +18,18 @@ h1 {
   position: relative;
 }
 
-.rightButton {
+#nextButton {
   transform: rotate(180deg);
   padding: 10px;
   background: whitesmoke;
 }
 
-.leftButton {
+#previousButton {
   padding: 10px;
   background: whitesmoke;
 }
 
-.firstIMG {
+#displayedIMG {
   width: 60%;
   height: 32%;
   min-width: 160px;
