@@ -1,0 +1,46 @@
+html, body {
+  margin: 10px;
+  margin-left: 10px;
+  background-color: blanchedalmond;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bubbling {
+  font-size: 40px;
+}
+
+.container > button {
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.button {
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  color: blanchedalmond;
+  padding: 15px 32px;
+  background-color: coral;
+  display: inline-block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  background-color: aquamarine;
+}

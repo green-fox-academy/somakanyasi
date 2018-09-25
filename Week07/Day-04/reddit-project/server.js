@@ -3,12 +3,12 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const PORT = 8080;
 
 app.use('/assets', express.static('assets'));
-
 
 const conn = mysql.createConnection({
   host: 'localhost',
@@ -26,7 +26,7 @@ conn.connect((err) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('hello World!');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/posts', (req, res) => {
@@ -66,8 +66,6 @@ app.post('/posts', jsonParser, (req, res) => {
     });
   }
 });
-
-
 
 app.put('/posts/:id/:upordown', (req, res) => {
   let id = req.params.id;
@@ -121,7 +119,6 @@ app.put('/posts/:id', jsonParser, (req, res) => {
       result: updatedRow,
     });
   });
-  
 });
 
 app.delete('/posts/:id', (req, res) => {
@@ -133,7 +130,7 @@ app.delete('/posts/:id', (req, res) => {
         res.status(500).send('Database error');
         return;
       }
-      res.status(404).send('Post has been deleted from the table.');
+      res.status(204).send(`Post number ${id} has been deleted from the table.`);
     });
   }
 });
