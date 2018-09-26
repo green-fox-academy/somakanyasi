@@ -1,0 +1,84 @@
+body {
+  background: royalblue;
+}
+
+td[data-currency]:before{
+  content: '$ ';
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  position: center;
+  width: 700px;
+  height: 420px;
+  margin: 100px auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table thead tr {
+  background-color: black;
+  color: grey;
+  height: 60px;
+}
+
+tbody{
+  color: rgb(114, 112, 112);
+}
+
+table tbody tr:nth-child(odd) {
+  background: rgb(202, 202, 202);
+}
+
+table tbody tr:nth-child(even) {
+  background: whitesmoke;
+}
+
+table thead tr:first-child th:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+
+/* ez ugyanaz mint az e feletti */
+/* th:nth-child(1) {
+  border-radius: 10px 0px 0px 0px;
+} */
+
+table thead tr:first-child th:last-child {
+  border-radius: 0px 10px 0px 0px;
+}
+
+/* ez ugyanaz mint az e feletti */
+/* th:nth-child(2) {
+  border-radius: 0px 10px 0px 0px;
+} */
+
+table tbody tr:last-child td:first-child {
+  border-radius: 0px 0px 0px 10px;
+}
+
+table tbody tr:last-child td:last-child {
+  border-radius: 0px 0px 10px 0px;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+
+table tr:first-child th {
+  border-top: 0;
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}

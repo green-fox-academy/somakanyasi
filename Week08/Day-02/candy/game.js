@@ -12,6 +12,7 @@ let candyNumber = 10000;
 let lollypopNumber = 3;
 let speedRatio = 0;
 let currentLollies = lollypops.textContent;
+let candyRain = 1;
 
 candies.textContent = candyNumber;
 
@@ -41,10 +42,12 @@ const lollyPopForCandies = () => {
 }
 
 const candyCreationRatio = () => {
-  speedRatio = Math.floor(lollypopNumber / 10);
+  speedRatio = Math.floor(lollypopNumber / 10) * candyRain;
   speed.textContent = speedRatio;
 }
 
 setInterval(lollyPopForCandies, 1000);
 
-candyMachine.addEventListener('click', )
+candyMachine.addEventListener('click', () => {
+  candyRain *= 10;
+});

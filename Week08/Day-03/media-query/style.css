@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+}
+
+.box {
+  width: 25%;
+  height: 150px;
+}
+
+.one {
+  background-color: rgb(150, 241, 13);
+}
+
+.two {
+  background-color: yellow;
+  width: 50%;
+}
+
+.three {
+  background-color: purple;
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    flex-wrap: wrap;
+  }
+  .box{
+    width: 100%;
+  }
+}
