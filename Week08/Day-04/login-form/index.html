@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title>Login From</title>
 </head>
 <body>
-  <div id="container">
-    <h1>ACCOUNT LOGIN</h1>
+  <form action="/login" method="POST">
     <div>
-      <form action=""></form>
+      <h2>ACCOUNT LOGIN</h2>
+    </div>  
+    <div>
+      <label for="user_name">USERNAME</label>
+      <input class="input-field" type="text" id="user_name" name="username" placeholder="User name">
     </div>
-  </div>
+    <div>
+      <label for="password">PASSWORD</label>
+      <input class="input-field" type="password" id="password" name="password" placeholder="Password">
+    </div>
+
+    <div>
+      <button>Login</button>
+    </div>  
+  </form>
 </body>
 </html>
