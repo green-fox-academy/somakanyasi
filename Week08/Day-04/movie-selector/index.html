@@ -6,29 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Movie Selector</title>
   <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <form action="/movie-selector" method="POST">
     <h1>Movie Selector</h1>
-    <div>
-      <select name="movie_genre" id="genre">
-        <option value="sci-fi">Sci-fi</option>
-        <option value="drama">Drama</option>
-        <option value="comedy">Comedy</option>
-      </select>
-    </div>
-    <div>
-      <select name="movie_titles" id="movies">
-        <option value="moon">Moon</option>
-        <option value="2001_space_odessy">2001 Space odessy</option>
-        <option value="contact">Contact</option>
-        <option value="darkest_hour">Darkest hour</option>
-        <option value="there_will_be_blood">There will be blood</option>
-        <option value="american_beauty">American beauty</option>
-        <option value="airplane">Airplane!</option>
-        <option value="deadpool">Deadpool</option>
-        <option value="waynes_world">Wayne's World</option>
-      </select>
+    <div class="both">
+      <div>
+        <select name="movie_genre" id="genre">
+          <option value="" disabled selected>Select a genre</option>
+          <option value="sci-fi">Sci-fi</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+        </select>
+      </div>
+      <div>
+        <select name="movie_titles" id="movies">
+          <option value="" disabled selected>Select a movie</option>
+          <option value="moon">Moon</option>
+          <option value="2001_space_odessy">2001 Space odessy</option>
+          <option value="contact">Contact</option>
+          <option value="darkest_hour">Darkest hour</option>
+          <option value="there_will_be_blood">There will be blood</option>
+          <option value="american_beauty">American beauty</option>
+          <option value="airplane">Airplane!</option>
+          <option value="deadpool">Deadpool</option>
+          <option value="waynes_world">Wayne's World</option>
+        </select>
+      </div>
     </div>
   </form>
 </body>

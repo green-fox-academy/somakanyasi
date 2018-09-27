@@ -1,0 +1,37 @@
+body {
+  background: rgb(166, 166, 250);
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background-color: whitesmoke;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+.both {
+  display: flex;
+  flex-direction: row;
+}
+
+div {
+  margin: 10px;
+}
+
+select {
+  width: 150px;
+  height: 35px;
+  color: blue;
+}
