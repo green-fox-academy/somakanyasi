@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title>Button Disabled</title>
 </head>
 <body>
   <form action="/button" method="POST">
     <div>
       <h2>What is your favorite pet?</h2>
-      <div class="pet-buttons">
+      <div class="petButtons">
         <input type="radio" name="pet" id="dog">
         <label for="dog">Dog</label>
         <input type="radio" name="pet" id="cat">
@@ -22,15 +23,15 @@
     <div>
       <h2>Do you want to sign up for cat facts?</h2>
       <div>
-        <input type="radio" name="yes_button" id="yes">
+        <input type="radio" name="yesorno_button" id="yes">
         <label for="yes">YES</label>
-        <input type="radio" name="no_button" id="no">
+        <input type="radio" name="yesorno_button" id="no">
         <label for="no">NO</label>
       </div>
     </div>
     <div>
-      <button>I love cats</button>
-      <button>Sign Up</button>
+      <button class="firstButton" disabled>I love cats</button>
+      <button class="signupButton" disabled>Sign Up</button>
     </div>
   </form>
   <script src="script.js"></script>
