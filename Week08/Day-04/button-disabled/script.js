@@ -5,8 +5,6 @@ const signupButton  = document.querySelector('.signupButton');
 const catFactButtons = document.querySelector('.catFactButtons');
 const loveCatsButton = document.querySelector('.loveCatsButton');
 
-console.log(petButtons);
-
 
 petButtons.addEventListener('change', () => {
   signupButton.disabled = false;
@@ -14,4 +12,8 @@ petButtons.addEventListener('change', () => {
 
 catFactButtons.addEventListener('change', () => {
   loveCatsButton.disabled = false;
+});
+
+loveCatsButton.addEventListener('click', () => {
+  alert `Thank you, you've successfully signed up for cat facts.`
 });
