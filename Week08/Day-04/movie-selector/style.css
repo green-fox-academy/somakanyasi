@@ -14,6 +14,8 @@ form {
   padding: 30px;
   border-radius: 5px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 h1, h2 {
@@ -34,4 +36,13 @@ select {
   width: 150px;
   height: 35px;
   color: blue;
+}
+
+.selected-movie {
+  display: flex;
+  margin: 10px;
+}
+
+#selectedMovie {
+  font-style: italic;
 }

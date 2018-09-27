@@ -4,44 +4,21 @@ window.onload = () => {
 
   const genres = document.querySelector('#genre');
   const movies = document.querySelector('#movies');
+  const selectedMovie = document.querySelector('#selectedMovie')
 
-  // genres.addEventListener('change', (event) => {
-  //   if (event.target.value === "sci-fi") {
-  //     for (let i = 0; i < movies.length; i++) {
-  //       if (movies[i].className === "sci-fi") {
-  //         movies[i].disabled = false;
-  //       } else {
-  //         movies[i].disabled = true;
-  //       }
-  //     }
-  //   } else if (event.target.value === "drama") {
-  //     for (let i = 0; i < movies.length; i++) {
-  //       if (movies[i].className === "drama") {
-  //         movies[i].disabled = false;
-  //       } else {
-  //         movies[i].disabled = true;
-  //       }
-  //     }
-  //   } else if (event.target.value === "comedy") {
-  //     for (let i = 0; i < movies.length; i++) {
-  //       if (movies[i].className === "comedy") {
-  //         movies[i].disabled = false;
-  //       } else {
-  //         movies[i].disabled = true;
-  //       }
-  //     }
-  //   }
-  // });
 
   genres.addEventListener('change', (event) => {
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].className === event.target.value) {
-        movies[i].disabled = false;
+        movies[i].style.display = 'block';
       } else {
-        movies[i].disabled = true;
+        movies[i].style.display = 'none';
       }
     }
   });
 
+  movies.addEventListener('change', () => {
+    selectedMovie.textContent = movies.options[movies.selectedIndex].text;
+  });
 
 }
