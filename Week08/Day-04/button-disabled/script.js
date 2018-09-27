@@ -21,6 +21,12 @@ noButton.addEventListener('change', () => {
   loveCatsButton.disabled = true;
 });
 
-loveCatsButton.addEventListener('click', () => {
+loveCatsButton.addEventListener('click', (e) => {
+  e.preventDefault();
   alert `Thank you, you've successfully signed up for cat facts.`
+});
+
+signupButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('Stop clicking me!');
 });
