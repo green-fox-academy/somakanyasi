@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Button Disabled</title>
 </head>
 <body>
-  
+  <form action="/button" method="POST">
+    <div>
+      <h2>What is your favorite pet?</h2>
+      <div class="pet-buttons">
+        <input type="radio" name="pet" id="dog">
+        <label for="dog">Dog</label>
+        <input type="radio" name="pet" id="cat">
+        <label for="cat">Cat</label>
+        <input type="radio" name="pet" id="viktor">
+        <label for="viktor">Viktor the goldfish</label>
+      </div>
+    </div>
+  </form>
   <script src="script.js"></script>
 </body>
 </html>
