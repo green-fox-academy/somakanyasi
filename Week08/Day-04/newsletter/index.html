@@ -9,9 +9,10 @@
 <body>
   <form action="http://localhost:3000/signup" method="POST">
     <label for="name">Name:</label>
-    <input type="text" name="username" id="name">
+    <input type="text" name="username" id="name" placeholder="Username" minlength="4" maxlength="14">
     <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email" id="email" placeholder="example@example.com">
+    <button>Submit</button>
   </form>
 </body>
 </html>
