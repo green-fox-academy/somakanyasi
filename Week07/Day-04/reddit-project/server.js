@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/posts', (req, res) => {
+app.get('/api/posts', (req, res) => {
   conn.query(`SELECT * FROM posts`, (err, result) => {
     if (err) {
       console.log('Error connecting to database', err.message);
