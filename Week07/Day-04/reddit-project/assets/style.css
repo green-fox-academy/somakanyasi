@@ -54,12 +54,13 @@ body {
 .newPost {
   display: flex;
   flex-direction: row;
-  margin: 20px;
-  background-color: white;
+  margin: 40px;
+  background-color: rgb(255, 251, 240);
   margin-bottom: -20px;
   border: 1px solid rgb(117, 117, 117);
   width: 500px;
   height: 100px;
+  border-radius: 5px;
 }
 
 .voting {
@@ -69,16 +70,43 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 4px;
+  margin: 0 auto;
 }
 
 .voteBtn {
   width: 30px;
   height: 30px;
-  background-color: blueviolet;
+  background-color: rgb(255, 251, 240);
   color: black;
-  font-size: 22px;
+  font-size: 23px;
   text-align: center;
   padding: 2px;
+  border-radius: 50px;
+  border: none;
+}
+
+.voteBtn:hover {
+  background-color: rgb(255, 205, 79);
+}
+
+.voteBtn:focus {
+  outline: none;
+}
+
+.scoreNum {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.postBody {
+  margin-left: 30px;
+  background-color: brown;
+  width: 100%;
+}
+
+.postTitle {
+  
 }
 
 #submit-about-box {

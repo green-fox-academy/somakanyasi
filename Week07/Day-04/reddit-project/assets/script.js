@@ -44,9 +44,13 @@ window.onload = () => {
         newPostBody.classList.add('postBody');
         newPost.appendChild(newPostBody);
 
-        let newTitle = document.createElement('h3');
+        console.log(element.url);
+        let newTitle = document.createElement('a');
+        newTitle.href = element.url;
+        newTitle.classList.add('postTitle');
         newTitle.textContent = element.title;
         newPostBody.appendChild(newTitle);
+        console.log(newTitle.attributes);
 
         let newDataRow = document.createElement('div');
         newDataRow.classList.add('dataRow');
@@ -54,7 +58,7 @@ window.onload = () => {
 
         let newOwner = document.createElement('p');
         newOwner.classList.add('postOwner');
-        newOwner.textContent = element.post_owner;
+        newOwner.textContent = `Posted by: ${element.post_owner}`;
         newDataRow.appendChild(newOwner);
 
         console.log(element.post_owner);
