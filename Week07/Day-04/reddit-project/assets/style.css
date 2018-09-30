@@ -85,8 +85,12 @@ body {
   border: none;
 }
 
-.voteBtn:hover {
-  background-color: rgb(255, 205, 79);
+.upvoteBtn:hover {
+  background-color: green;
+}
+
+.downvoteBtn:hover {
+  background-color: red;
 }
 
 .voteBtn:focus {
@@ -101,7 +105,7 @@ body {
 
 .postBody {
   margin-left: 30px;
-  background-color: brown;
+  background-color: rgb(154, 202, 214);
   width: 100%;
   padding: 10px;
 }
@@ -109,18 +113,25 @@ body {
 .postTitle {
   font-size: 28px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: black;
+  color: rgb(88, 88, 88);
   font-style: normal;
   text-decoration: none;
+  opacity: 0,8;
 }
 .postTitle:hover {
-  color: green;
+  color: gold;
 }
 
 .dataRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+p {
+  font-size: 16px;
+  color: rgb(150, 150, 150);
+  opacity: 0,7;
 }
 
 #submit-about-box {

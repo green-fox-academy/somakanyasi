@@ -26,7 +26,7 @@ window.onload = () => {
         newPost.appendChild(newVotingDiv);
 
         let newUpButton = document.createElement('button');
-        newUpButton.classList.add('voteBtn');
+        newUpButton.classList.add('voteBtn','upvoteBtn');
         newUpButton.innerHTML = '<i class="fas fa-arrow-alt-circle-up"></i>';
         newVotingDiv.appendChild(newUpButton);
 
@@ -36,7 +36,7 @@ window.onload = () => {
         newVotingDiv.appendChild(newScoreCounter);
 
         let newDownButton = document.createElement('button');
-        newDownButton.classList.add('voteBtn');
+        newDownButton.classList.add('voteBtn','downvoteBtn');
         newDownButton.innerHTML = '<i class="fas fa-arrow-alt-circle-down"></i>';
         newVotingDiv.appendChild(newDownButton);
 
