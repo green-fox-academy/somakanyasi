@@ -61,7 +61,7 @@ window.onload = () => {
 
         let newTimestamp = document.createElement('p');
         newTimestamp.classList.add('postTimestamp');
-        newTimestamp.textContent = element.post_timestamp;
+        newTimestamp.textContent = new Date(element.post_timestamp).toDateString();
         newDataRow.appendChild(newTimestamp);
       });
     }
