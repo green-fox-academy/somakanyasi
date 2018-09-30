@@ -110,6 +110,12 @@ body {
   padding: 10px;
 }
 
+.functionRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .postTitle {
   font-size: 28px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -118,8 +124,30 @@ body {
   text-decoration: none;
   opacity: 0,8;
 }
+
 .postTitle:hover {
   color: gold;
+}
+
+.deleteBtn {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(154, 202, 214);
+  color: rgb(124, 124, 124);
+  font-size: 23px;
+  text-align: center;
+  border: none;
+  padding: 2px;
+  opacity: 0,1;
+}
+
+.deleteBtn:hover {
+  color: rgb(196, 0, 0);
+  opacity: 1;
+}
+
+.deleteBtn:focus {
+  outline: none;
 }
 
 .dataRow {

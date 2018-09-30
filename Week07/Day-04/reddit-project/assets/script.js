@@ -74,18 +74,26 @@ window.onload = () => {
         newDownButton.addEventListener('click', () => {
           downvote(newDownButton.parentElement.parentElement.id);
           newScoreCounter.textContent = Number(newScoreCounter.textContent) - 1;
-          console.log(newDownButton.parentElement.parentElement.id)
         });
 
         let newPostBody = document.createElement('div');
         newPostBody.classList.add('postBody');
         newPost.appendChild(newPostBody);
 
+        let newFuctionRow = document.createElement('div');
+        newFuctionRow.classList.add('functionRow');
+        newPostBody.appendChild(newFuctionRow)
+
         let newTitle = document.createElement('a');
         newTitle.href = element.url;
         newTitle.classList.add('postTitle');
         newTitle.textContent = element.title;
-        newPostBody.appendChild(newTitle);
+        newFuctionRow.appendChild(newTitle);
+
+        let newDeleteButton = document.createElement('button');
+        newDeleteButton.classList.add('deleteBtn');
+        newDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+        newFuctionRow.appendChild(newDeleteButton);
 
         let newDataRow = document.createElement('div');
         newDataRow.classList.add('dataRow');
