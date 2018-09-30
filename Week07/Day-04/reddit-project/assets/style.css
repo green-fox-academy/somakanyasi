@@ -103,10 +103,24 @@ body {
   margin-left: 30px;
   background-color: brown;
   width: 100%;
+  padding: 10px;
 }
 
 .postTitle {
-  
+  font-size: 28px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+  font-style: normal;
+  text-decoration: none;
+}
+.postTitle:hover {
+  color: green;
+}
+
+.dataRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #submit-about-box {

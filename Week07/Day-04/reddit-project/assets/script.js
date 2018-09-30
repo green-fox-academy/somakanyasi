@@ -14,7 +14,7 @@ window.onload = () => {
       const sourceDatabase = JSON.parse(postRequest.response).posts;
 
       sourceDatabase.forEach(element => {
-        console.log(element.title);
+        console.log(element);
 
         let newPost = document.createElement('div');
         newPost.classList.add('newPost');
@@ -44,13 +44,11 @@ window.onload = () => {
         newPostBody.classList.add('postBody');
         newPost.appendChild(newPostBody);
 
-        console.log(element.url);
         let newTitle = document.createElement('a');
         newTitle.href = element.url;
         newTitle.classList.add('postTitle');
         newTitle.textContent = element.title;
         newPostBody.appendChild(newTitle);
-        console.log(newTitle.attributes);
 
         let newDataRow = document.createElement('div');
         newDataRow.classList.add('dataRow');
@@ -61,7 +59,10 @@ window.onload = () => {
         newOwner.textContent = `Posted by: ${element.post_owner}`;
         newDataRow.appendChild(newOwner);
 
-        console.log(element.post_owner);
+        let newTimestamp = document.createElement('p');
+        newTimestamp.classList.add('postTimestamp');
+        newTimestamp.textContent = element.post_timestamp;
+        newDataRow.appendChild(newTimestamp);
       });
     }
   }
