@@ -14,6 +14,8 @@ const randomDivCreator = () => {
   return Math.floor(Math.random() * 10 + 10);
 }
 
+const scrollThreshold = 300;
+
 const bottomDivCreator = () => {
   for (let i = 0; i < randomDivCreator(); i++) {
     let div = document.createElement('div');
@@ -21,3 +23,5 @@ const bottomDivCreator = () => {
     body.appendChild(div);
   }
 }
+
+

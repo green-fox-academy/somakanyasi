@@ -13,7 +13,6 @@ app.use(cors());
 const PORT = 3000;
 
 app.post('/signup', (req, res) => {
-  console.log(req.body);
   res.json(`Thanks ${req.body.username} we will send updates to ${req.body.email}`);
 });
 

@@ -20,5 +20,4 @@ window.onload = () => {
   movies.addEventListener('change', () => {
     selectedMovie.textContent = movies.options[movies.selectedIndex].text;
   });
-
 }
