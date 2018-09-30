@@ -1,5 +1,7 @@
 window.onload = () => {
   const postRequest = new XMLHttpRequest;
+  const upvoteRequest = new XMLHttpRequest;
+  const downvoteRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
   const fullContent = document.querySelector('#full-content');
@@ -13,12 +15,34 @@ window.onload = () => {
     if (postRequest.status === 200) {
       const sourceDatabase = JSON.parse(postRequest.response).posts;
 
+      const upvote = (postId) => {
+        upvoteRequest.open('PUT', `${host}/posts/${postId}/upvote`, true);
+
+        upvoteRequest.onload = () => {
+          if (upvoteRequest.status === 200) {
+            const sourcePost = JSON.parse(upvoteRequest.response);
+            console.log(sourcePost);
+          }
+        }
+      }
+
+      const downvote = (postId) => {
+        downvoteRequest.open('PUT', `${host}/posts/${postId}/downvote`, true);
+
+        downvoteRequest.onload = () => {
+          if (downvoteRequest.status === 200) {
+            const sourcePost = JSON.parse(upvoteRequest.response);
+            console.log(sourcePost);
+          }
+        }
+      }
+
       sourceDatabase.forEach(element => {
         console.log(element);
 
         let newPost = document.createElement('div');
         newPost.classList.add('newPost');
-        newPost.id = element.id;
+        newPost.id = element.post_id;
         postList.appendChild(newPost);
 
         let newVotingDiv = document.createElement('div');
@@ -30,6 +54,11 @@ window.onload = () => {
         newUpButton.innerHTML = '<i class="fas fa-arrow-alt-circle-up"></i>';
         newVotingDiv.appendChild(newUpButton);
 
+        newUpButton.addEventListener('click', () => {
+          upvote(newUpButton.parentElement.parentElement.id);
+          newScoreCounter.textContent = Number(newScoreCounter.textContent) + 1;
+        });
+
         let newScoreCounter = document.createElement('div');
         newScoreCounter.classList.add('scoreNum');
         newScoreCounter.textContent = element.score;
@@ -39,6 +68,11 @@ window.onload = () => {
         newDownButton.classList.add('voteBtn','downvoteBtn');
         newDownButton.innerHTML = '<i class="fas fa-arrow-alt-circle-down"></i>';
         newVotingDiv.appendChild(newDownButton);
+
+        newDownButton.addEventListener('click', () => {
+          downvote(newDownButton.parentElement.parentElement.id);
+          newScoreCounter.textContent = Number(newScoreCounter.textContent) - 1;
+        });
 
         let newPostBody = document.createElement('div');
         newPostBody.classList.add('postBody');
@@ -63,6 +97,8 @@ window.onload = () => {
         newTimestamp.classList.add('postTimestamp');
         newTimestamp.textContent = new Date(element.post_timestamp).toDateString();
         newDataRow.appendChild(newTimestamp);
+
+        console.log(newPost);
       });
     }
   }
