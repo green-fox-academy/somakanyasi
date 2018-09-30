@@ -24,6 +24,7 @@ window.onload = () => {
             console.log(sourcePost);
           }
         }
+        upvoteRequest.send();
       }
 
       const downvote = (postId) => {
@@ -35,6 +36,7 @@ window.onload = () => {
             console.log(sourcePost);
           }
         }
+        downvoteRequest.send();
       }
 
       sourceDatabase.forEach(element => {
@@ -72,6 +74,7 @@ window.onload = () => {
         newDownButton.addEventListener('click', () => {
           downvote(newDownButton.parentElement.parentElement.id);
           newScoreCounter.textContent = Number(newScoreCounter.textContent) - 1;
+          console.log(newDownButton.parentElement.parentElement.id)
         });
 
         let newPostBody = document.createElement('div');
