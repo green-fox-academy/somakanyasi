@@ -26,7 +26,8 @@ window.onload = () => {
         newPost.appendChild(newVotingDiv);
 
         let newUpButton = document.createElement('button');
-        newUpButton.classList.add('upvoteBtn');
+        newUpButton.classList.add('voteBtn');
+        newUpButton.innerHTML = '<i class="fas fa-arrow-alt-circle-up"></i>';
         newVotingDiv.appendChild(newUpButton);
 
         let newScoreCounter = document.createElement('div');
@@ -35,7 +36,8 @@ window.onload = () => {
         newVotingDiv.appendChild(newScoreCounter);
 
         let newDownButton = document.createElement('button');
-        newDownButton.classList.add('downvoteBtn');
+        newDownButton.classList.add('voteBtn');
+        newDownButton.innerHTML = '<i class="fas fa-arrow-alt-circle-down"></i>';
         newVotingDiv.appendChild(newDownButton);
 
         let newPostBody = document.createElement('div');
@@ -52,11 +54,11 @@ window.onload = () => {
 
         let newOwner = document.createElement('p');
         newOwner.classList.add('postOwner');
-        newOwner.textContent = element.owner;
+        newOwner.textContent = element.post_owner;
         newDataRow.appendChild(newOwner);
-      });
 
-      console.log(source);
+        console.log(element.post_owner);
+      });
     }
   }
 

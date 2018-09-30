@@ -45,6 +45,42 @@ body {
   color: whitesmoke;
 }
 
+#full-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.newPost {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  background-color: white;
+  margin-bottom: -20px;
+  border: 1px solid rgb(117, 117, 117);
+  width: 500px;
+  height: 100px;
+}
+
+.voting {
+  display: flex;
+  flex-direction: column;
+  position: middle;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+
+.voteBtn {
+  width: 30px;
+  height: 30px;
+  background-color: blueviolet;
+  color: black;
+  font-size: 22px;
+  text-align: center;
+  padding: 2px;
+}
+
 #submit-about-box {
   margin-top: 15px;
   display: flex;
