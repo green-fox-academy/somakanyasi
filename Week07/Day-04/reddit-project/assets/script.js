@@ -2,7 +2,7 @@ window.onload = () => {
   const postRequest = new XMLHttpRequest;
   const upvoteRequest = new XMLHttpRequest;
   const downvoteRequest = new XMLHttpRequest;
-  const submitRequest = new XMLHttpRequest;
+  const updateRequest = new XMLHttpRequest;
   const deleteRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
@@ -13,10 +13,6 @@ window.onload = () => {
 
   submitNewPost.onclick = () => {
     location.href = `${host}/submit`;
-  }
-
-  editButton.onclick = () => {
-    location.href = `${host}/update`;
   }
 
   const upvote = (postId) => {
@@ -121,6 +117,10 @@ window.onload = () => {
         newEditButton.classList.add('editBtn');
         newEditButton.innerHTML = '<i class="far fa-edit"></i>';
         newToolButtons.appendChild(newEditButton);
+
+        newEditButton.onclick = () => {
+          location.href = `${host}/update`;
+        }
 
         let newDeleteButton = document.createElement('button');
         newDeleteButton.classList.add('deleteBtn');

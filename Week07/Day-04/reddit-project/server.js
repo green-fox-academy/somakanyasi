@@ -37,6 +37,10 @@ app.get('/submit', (req, res) => {
   res.sendFile(path.join(__dirname, 'newpost.html'));
 });
 
+app.get('/update', (req, res) => {
+  res.sendFile(path.join(__dirname, 'updatepost.html'))
+});
+
 app.get('/api/posts', (req, res) => {
   conn.query(`SELECT * FROM posts`, (err, result) => {
     if (err) {
