@@ -108,7 +108,7 @@ body {
 
 .postBody {
   margin-left: 30px;
-  background-color: #8b6644;
+  background-color: #B54213;
   width: 100%;
   padding: 10px;
   border-radius: 0px 5px 5px 0px;
@@ -126,7 +126,7 @@ body {
   color: rgb(27, 27, 27);
   font-style: normal;
   text-decoration: none;
-  opacity: 0,8;
+  opacity: 0.9;
 }
 
 .postTitle:hover {
@@ -136,8 +136,8 @@ body {
 .editBtn {
   width: 30px;
   height: 30px;
-  background-color: #8b6644;
-  color: rgb(124, 124, 124);
+  background-color: #B54213;
+  color: rgb(61, 61, 61);
   font-size: 23px;
   text-align: center;
   border: none;
@@ -156,8 +156,8 @@ body {
 .deleteBtn {
   width: 30px;
   height: 30px;
-  background-color: #8b6644;
-  color: rgb(124, 124, 124);
+  background-color: #B54213;
+  color: rgb(61, 61, 61);
   font-size: 23px;
   text-align: center;
   border: none;
@@ -182,7 +182,7 @@ body {
 
 p {
   font-size: 16px;
-  color: rgb(129, 129, 129);
+  color: rgb(80, 80, 80);
   opacity: 0,7;
 }
 
@@ -217,15 +217,33 @@ p {
   letter-spacing: 2px;
   font-weight: lighter;
   padding-left: 10px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 #about-us-text {
-  background-color: rgb(221, 221, 221);
+  background-color: #743800;
   margin-top: -20px;
   height: 300px;
   padding-top: 10px;
   padding-right: 20px;
   line-height: 25px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.basketball {
+  margin-top: 15px;
+  width: 90%;
+  height: 400px;
+  background: url('https://openclipart.org/image/2400px/svg_to_png/222581/basketball-css-spritesheet.png')
+}
+
+.bounce {
+  height: 35px;
+  width: 90%;
+  color: whitesmoke;
+  background-color: rgb(150, 150, 240);
+  border: none;
+  letter-spacing: 2px;
 }
 
 @media screen and (max-width: 650px) {

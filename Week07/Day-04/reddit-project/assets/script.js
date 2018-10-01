@@ -11,6 +11,29 @@ window.onload = () => {
   const submitNewPost = document.querySelector('#submitNewPost');
   const editButton = document.querySelector('.editBtn');
 
+  let bounce = document.querySelector('.bounce');
+  var basketball = document.getElementById('basketball');
+  var topPosition = 0;
+
+  function changeTop() {
+    topPosition += 400;
+    basketball.style.backgroundPosition = topPosition + 'px';
+  }
+
+  console.log(bounce);
+
+  bounce.addEventListener('click', bouncing);
+
+  function bouncing() {
+    var time = 0;
+    for (var i = 0; i < 6; i++) {
+      time += 100;
+      setTimeout(function () {
+        changeTop();
+      }, time)
+    }
+  }
+
   submitNewPost.onclick = () => {
     location.href = `${host}/submit`;
   }
