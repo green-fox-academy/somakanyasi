@@ -20,8 +20,6 @@ window.onload = () => {
     basketball.style.backgroundPosition = topPosition + 'px';
   }
 
-  console.log(bounce);
-
   bounce.addEventListener('click', bouncing);
 
   function bouncing() {
@@ -72,14 +70,12 @@ window.onload = () => {
   }
 
   postRequest.open('GET', `${host}/api/posts`, true);
-  console.log(postRequest);
 
   postRequest.onload = () => {
     if (postRequest.status === 200) {
       const sourceDatabase = JSON.parse(postRequest.response).posts;
 
       sourceDatabase.forEach(element => {
-        console.log(element);
 
         let newPost = document.createElement('div');
         newPost.classList.add('newPost');
@@ -97,6 +93,7 @@ window.onload = () => {
 
         newUpButton.addEventListener('click', () => {
           upvote(newUpButton.parentElement.parentElement.id);
+          bouncing();
           newScoreCounter.textContent = Number(newScoreCounter.textContent) + 1;
         });
 
@@ -112,6 +109,7 @@ window.onload = () => {
 
         newDownButton.addEventListener('click', () => {
           downvote(newDownButton.parentElement.parentElement.id);
+          bouncing();
           newScoreCounter.textContent = Number(newScoreCounter.textContent) - 1;
         });
 
@@ -168,8 +166,6 @@ window.onload = () => {
         newTimestamp.classList.add('postTimestamp');
         newTimestamp.textContent = new Date(element.post_timestamp).toDateString();
         newDataRow.appendChild(newTimestamp);
-
-        console.log(newPost);
       });
     }
   }
