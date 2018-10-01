@@ -11,8 +11,6 @@ body {
   background-image: url('ne0213-last-hubble-mission.jpg');
   background-size: cover;
   background-position: center;
-  /* line-height: 350px; */
-  /* vertical-align: middle; */
   text-align: center;
   top: 0px;
   left: 0px;
@@ -49,17 +47,22 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: auto auto;
+}
+
+#postList {
+  margin-top: 25px;
+  width: 60%;
 }
 
 .newPost {
   display: flex;
   flex-direction: row;
-  margin: 40px;
+  margin-bottom: 20px;
   background-color: rgb(255, 251, 240);
-  margin-bottom: -20px;
-  /* border: 1px solid rgb(117, 117, 117); */
-  width: 700px;
-  height: 100px;
+  width: 90%;
+  height: fit-content;
   border-radius: 5px;
 }
 
@@ -184,16 +187,16 @@ p {
 }
 
 #submit-about-box {
-  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 30%;
   float: right;
+  margin-top: 25px;
 }
 
 #submitNewPost {
   height: 35px;
-  width: 300px;
+  width: 90%;
   color: whitesmoke;
   background-color: rgb(88, 88, 236);
   border: none;
@@ -201,13 +204,11 @@ p {
 }
 
 #about-us-content {
-  width: 300px;
+  width: 90%;
   position: relative;
-  /* padding: 10px; */
 }
 
 #about-us-content h3 {
-  /* position: absolute; */
   background-color: rgb(248, 248, 248);
   height: 40px;
   line-height: 40px;
@@ -225,4 +226,10 @@ p {
   padding-top: 10px;
   padding-right: 20px;
   line-height: 25px;
+}
+
+@media screen and (max-width: 650px) {
+  #full-content {
+    display: block;
+  }
 }

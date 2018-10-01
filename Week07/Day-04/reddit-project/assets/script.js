@@ -17,7 +17,6 @@ window.onload = () => {
 
   const upvote = (postId) => {
     upvoteRequest.open('PUT', `${host}/posts/${postId}/upvote`, true);
-
     upvoteRequest.onload = () => {
       if (upvoteRequest.status === 200) {
         const sourcePost = JSON.parse(upvoteRequest.response);
@@ -29,7 +28,6 @@ window.onload = () => {
 
   const downvote = (postId) => {
     downvoteRequest.open('PUT', `${host}/posts/${postId}/downvote`, true);
-
     downvoteRequest.onload = () => {
       if (downvoteRequest.status === 200) {
         const sourcePost = JSON.parse(upvoteRequest.response);
@@ -41,7 +39,6 @@ window.onload = () => {
 
   const deletePost = (postId) => {
     deleteRequest.open('DELETE', `${host}/posts/${postId}`, true);
-
     deleteRequest.onload = () => {
       if (deleteRequest.status === 200) {
         const sourcePost = JSON.parse(deleteRequest.response);
@@ -119,8 +116,10 @@ window.onload = () => {
         newToolButtons.appendChild(newEditButton);
 
         newEditButton.onclick = () => {
-          localStorage.setItem('selectedPostId', newEditButton.parentElement.parentElement.parentElement.parentElement.id);
-          location.href = `${host}/update/${newEditButton.parentElement.parentElement.parentElement.parentElement.id}`;
+          localStorage.setItem('selectedPostId', element.post_id);
+          localStorage.setItem('selectedPostTitle', element.title);
+          localStorage.setItem('selectedPostUrl', element.url);
+          location.href = `${host}/update/${element.post_id}`;
         }
 
         let newDeleteButton = document.createElement('button');
@@ -130,7 +129,7 @@ window.onload = () => {
 
         newDeleteButton.addEventListener('click', () => {
           newDeleteButton.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
-          deletePost(newDeleteButton.parentElement.parentElement.parentElement.parentElement.id);
+          deletePost(element.post_id);
         });
 
         let newDataRow = document.createElement('div');

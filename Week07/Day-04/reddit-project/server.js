@@ -76,7 +76,7 @@ app.post('/posts', (req, res) => {
         res.status(200).redirect('/');
       });
     });
-  }
+  };
 });
 
 app.put('/posts/:id/:upordown', (req, res) => {
