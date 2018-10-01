@@ -115,6 +115,7 @@ window.onload = () => {
         newFuctionRow.appendChild(newDeleteButton);
 
         newDeleteButton.addEventListener('click', () => {
+          newDeleteButton.parentElement.parentElement.parentElement.style.display = 'none';
           deletePost(newDeleteButton.parentElement.parentElement.parentElement.id);
         });
 
@@ -136,6 +137,5 @@ window.onload = () => {
       });
     }
   }
-
   postRequest.send();
 }
