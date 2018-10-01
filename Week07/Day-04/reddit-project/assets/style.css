@@ -242,7 +242,15 @@ p {
   background: url('https://openclipart.org/image/2400px/svg_to_png/222581/basketball-css-spritesheet.png')
 }
 
-.bounce {
+.bounceCounter {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.bounceBtn {
   height: 35px;
   width: 90%;
   color: whitesmoke;
@@ -251,8 +259,12 @@ p {
   letter-spacing: 2px;
 }
 
-.bounce:hover {
+.bounceBtn:hover {
   background-color: rgb(88, 88, 236);
+}
+
+.bounceBtn:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 650px) {

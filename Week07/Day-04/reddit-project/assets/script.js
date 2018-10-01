@@ -6,21 +6,27 @@ window.onload = () => {
   const deleteRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
-  const fullContent = document.querySelector('#full-content');
   const postList = document.querySelector('#postList');
   const submitNewPost = document.querySelector('#submitNewPost');
-  const editButton = document.querySelector('.editBtn');
+  const bounceCounterDiv = document.querySelector('.bounceCounter');
+  const bounceNum = document.querySelector('.bounceNum');
 
-  let bounce = document.querySelector('.bounce');
-  var basketball = document.getElementById('basketball');
-  var topPosition = 0;
+  let bounce = document.querySelector('.bounceBtn');
+  let basketball = document.getElementById('basketball');
+  let topPosition = 0;
+  let bounceCounter = 0;
 
   function changeTop() {
     topPosition += 400;
     basketball.style.backgroundPosition = topPosition + 'px';
   }
 
-  bounce.addEventListener('click', bouncing);
+  bounce.addEventListener('click', () => {
+    bouncing();
+    bounceNum.textContent ='';
+    bounceCounter ++;
+    bounceNum.textContent = bounceCounter;
+  });
 
   function bouncing() {
     var time = 0;
