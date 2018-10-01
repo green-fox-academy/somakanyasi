@@ -5,10 +5,14 @@ const mysql = require('mysql');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+const cors = require('cors');
 const PORT = 8080;
 
+app.use(cors());
 app.use('/assets', express.static('assets'));
+
+app.use(bodyParser.urlencoded( {extended: false} ));
+app.use(bodyParser.json());
 
 const conn = mysql.createConnection({
   host: 'localhost',
@@ -46,7 +50,7 @@ app.get('/api/posts', (req, res) => {
   });
 });
 
-app.post('/posts', jsonParser, (req, res) => {
+app.post('/posts', (req, res) => {
   let postTitle = req.body.title;
   let postUrl = req.body.url;
   let postOwner = req.body.owner;
@@ -63,9 +67,7 @@ app.post('/posts', jsonParser, (req, res) => {
           res.status(500).send('Database error');
           return;
         }
-        res.status(200).json({
-          result: response,
-        });
+        res.status(200).sendFile(path.join(__dirname, 'index.html'));
       });
     });
   }
@@ -101,7 +103,7 @@ app.put('/posts/:id/:upordown', (req, res) => {
   });
 });
 
-app.put('/posts/:id', jsonParser, (req, res) => {
+app.put('/posts/:id', (req, res) => {
   let id = req.params.id;
   let postTitle = req.body.title;
   let postUrl = req.body.url;

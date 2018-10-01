@@ -13,13 +13,13 @@
         <h2>NBA SUMMER WORKOUT</h2>
     </div>
     <div id="submit-form">
-      <form action="/login" method="POST">
+      <form action="http://localhost:8080/posts" method="POST" enctype="application/json">
         <div>
           <h2>SUBMIT NEW POST</h2>
         </div>  
         <div>
           <label for="post_title">POST TITLE:</label>
-          <input class="input-field" type="text" id="post_titlee" name="title" placeholder="What you gotta say?">
+          <input class="input-field" type="text" id="post_title" name="title" placeholder="What you gotta say?">
         </div>
         <div>
           <label for="post_url">URL:</label>
@@ -30,7 +30,7 @@
           <input class="input-field" type="text" id="post_owner" name="owner" placeholder="username">
         </div>
         <div>
-          <button class="submitBtn">Submit</button>
+          <button type="submit" class="submitBtn" onclick="location.href='http://localhost:8080'">Submit</button>
         </div>  
     </div>
 </body>
