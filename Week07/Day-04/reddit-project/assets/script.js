@@ -109,6 +109,11 @@ window.onload = () => {
         newTitle.textContent = element.title;
         newFuctionRow.appendChild(newTitle);
 
+        let newEditButton = document.createElement('button');
+        newEditButton.classList.add('editBtn');
+        newEditButton.innerHTML = '<i class="far fa-edit"></i>';
+        newFuctionRow.appendChild(newEditButton);
+
         let newDeleteButton = document.createElement('button');
         newDeleteButton.classList.add('deleteBtn');
         newDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
