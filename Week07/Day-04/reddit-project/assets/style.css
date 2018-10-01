@@ -58,7 +58,7 @@ body {
   background-color: rgb(255, 251, 240);
   margin-bottom: -20px;
   /* border: 1px solid rgb(117, 117, 117); */
-  width: 500px;
+  width: 700px;
   height: 100px;
   border-radius: 5px;
 }
@@ -140,6 +140,14 @@ body {
   border: none;
   padding: 2px;
   opacity: 0,1;
+}
+
+.editBtn:hover {
+  color: black;
+}
+
+.editBtn:focus {
+  outline: none;
 }
 
 .deleteBtn {

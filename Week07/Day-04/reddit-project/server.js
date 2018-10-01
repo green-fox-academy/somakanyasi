@@ -67,7 +67,7 @@ app.post('/posts', (req, res) => {
           res.status(500).send('Database error');
           return;
         }
-        res.status(200).sendFile(path.join(__dirname, 'index.html'));
+        res.status(200).redirect('/');
       });
     });
   }

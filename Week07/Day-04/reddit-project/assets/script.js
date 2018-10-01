@@ -9,10 +9,14 @@ window.onload = () => {
   const fullContent = document.querySelector('#full-content');
   const postList = document.querySelector('#postList');
   const submitNewPost = document.querySelector('#submitNewPost');
-  const submitBtn = document.querySelector('submitBtn');
+  const editButton = document.querySelector('.editBtn');
 
   submitNewPost.onclick = () => {
     location.href = `${host}/submit`;
+  }
+
+  editButton.onclick = () => {
+    location.href = `${host}/update`;
   }
 
   const upvote = (postId) => {
@@ -124,8 +128,8 @@ window.onload = () => {
         newToolButtons.appendChild(newDeleteButton);
 
         newDeleteButton.addEventListener('click', () => {
-          newDeleteButton.parentElement.parentElement.parentElement.style.display = 'none';
-          deletePost(newDeleteButton.parentElement.parentElement.parentElement.id);
+          newDeleteButton.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+          deletePost(newDeleteButton.parentElement.parentElement.parentElement.parentElement.id);
         });
 
         let newDataRow = document.createElement('div');

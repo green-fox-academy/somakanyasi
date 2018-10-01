@@ -97,3 +97,12 @@ label {
   border-radius: 50px;
   border: none;
 }
+
+.updateBtn {
+  background-color: black;
+  color: white;
+  width: 120px;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+}
