@@ -119,7 +119,8 @@ window.onload = () => {
         newToolButtons.appendChild(newEditButton);
 
         newEditButton.onclick = () => {
-          location.href = `${host}/update`;
+          localStorage.setItem('selectedPostId', newEditButton.parentElement.parentElement.parentElement.parentElement.id);
+          location.href = `${host}/update/${newEditButton.parentElement.parentElement.parentElement.parentElement.id}`;
         }
 
         let newDeleteButton = document.createElement('button');

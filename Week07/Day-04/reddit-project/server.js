@@ -6,9 +6,11 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const methOverride = require('method-override');
 const PORT = 8080;
 
 app.use(cors());
+app.use(methOverride('_method'));
 app.use('/assets', express.static('assets'));
 
 app.use(bodyParser.urlencoded( {extended: false} ));
@@ -37,7 +39,7 @@ app.get('/submit', (req, res) => {
   res.sendFile(path.join(__dirname, 'newpost.html'));
 });
 
-app.get('/update', (req, res) => {
+app.get('/update/:id', (req, res) => {
   res.sendFile(path.join(__dirname, 'updatepost.html'))
 });
 
@@ -125,9 +127,7 @@ app.put('/posts/:id', (req, res) => {
       res.status(500).send('Database error');
       return;
     }
-    res.status(200).json({
-      result: updatedRow,
-    });
+    res.status(200).redirect('/');
   });
 });
 
