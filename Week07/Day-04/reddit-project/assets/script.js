@@ -109,15 +109,19 @@ window.onload = () => {
         newTitle.textContent = element.title;
         newFuctionRow.appendChild(newTitle);
 
+        let newToolButtons = document.createElement('div');
+        newToolButtons.classList.add('toolBtns');
+        newFuctionRow.appendChild(newToolButtons);
+
         let newEditButton = document.createElement('button');
         newEditButton.classList.add('editBtn');
         newEditButton.innerHTML = '<i class="far fa-edit"></i>';
-        newFuctionRow.appendChild(newEditButton);
+        newToolButtons.appendChild(newEditButton);
 
         let newDeleteButton = document.createElement('button');
         newDeleteButton.classList.add('deleteBtn');
         newDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-        newFuctionRow.appendChild(newDeleteButton);
+        newToolButtons.appendChild(newDeleteButton);
 
         newDeleteButton.addEventListener('click', () => {
           newDeleteButton.parentElement.parentElement.parentElement.style.display = 'none';

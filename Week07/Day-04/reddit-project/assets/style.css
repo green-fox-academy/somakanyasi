@@ -130,6 +130,18 @@ body {
   color: gold;
 }
 
+.editBtn {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(154, 202, 214);
+  color: rgb(124, 124, 124);
+  font-size: 23px;
+  text-align: center;
+  border: none;
+  padding: 2px;
+  opacity: 0,1;
+}
+
 .deleteBtn {
   width: 30px;
   height: 30px;
