@@ -2,42 +2,48 @@ window.onload = () => {
   const postRequest = new XMLHttpRequest;
   const upvoteRequest = new XMLHttpRequest;
   const downvoteRequest = new XMLHttpRequest;
+  const submitRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
   const fullContent = document.querySelector('#full-content');
   const postList = document.querySelector('#postList');
-  const submitButton = document.querySelector('submit-button');
+  const submitNewPost = document.querySelector('#submitNewPost');
+  const submitBtn = document.querySelector('submitBtn');
 
+  submitNewPost.onclick = () => {
+    location.href = `${host}/submit`;
+  }
+
+  const upvote = (postId) => {
+    upvoteRequest.open('PUT', `${host}/posts/${postId}/upvote`, true);
+
+    upvoteRequest.onload = () => {
+      if (upvoteRequest.status === 200) {
+        const sourcePost = JSON.parse(upvoteRequest.response);
+        console.log(sourcePost);
+      }
+    }
+    upvoteRequest.send();
+  }
+
+  const downvote = (postId) => {
+    downvoteRequest.open('PUT', `${host}/posts/${postId}/downvote`, true);
+
+    downvoteRequest.onload = () => {
+      if (downvoteRequest.status === 200) {
+        const sourcePost = JSON.parse(upvoteRequest.response);
+        console.log(sourcePost);
+      }
+    }
+    downvoteRequest.send();
+  }
 
   postRequest.open('GET', `${host}/api/posts`, true);
+  console.log(postRequest);
 
   postRequest.onload = () => {
     if (postRequest.status === 200) {
       const sourceDatabase = JSON.parse(postRequest.response).posts;
-
-      const upvote = (postId) => {
-        upvoteRequest.open('PUT', `${host}/posts/${postId}/upvote`, true);
-
-        upvoteRequest.onload = () => {
-          if (upvoteRequest.status === 200) {
-            const sourcePost = JSON.parse(upvoteRequest.response);
-            console.log(sourcePost);
-          }
-        }
-        upvoteRequest.send();
-      }
-
-      const downvote = (postId) => {
-        downvoteRequest.open('PUT', `${host}/posts/${postId}/downvote`, true);
-
-        downvoteRequest.onload = () => {
-          if (downvoteRequest.status === 200) {
-            const sourcePost = JSON.parse(upvoteRequest.response);
-            console.log(sourcePost);
-          }
-        }
-        downvoteRequest.send();
-      }
 
       sourceDatabase.forEach(element => {
         console.log(element);
@@ -52,7 +58,7 @@ window.onload = () => {
         newPost.appendChild(newVotingDiv);
 
         let newUpButton = document.createElement('button');
-        newUpButton.classList.add('voteBtn','upvoteBtn');
+        newUpButton.classList.add('voteBtn', 'upvoteBtn');
         newUpButton.innerHTML = '<i class="fas fa-arrow-alt-circle-up"></i>';
         newVotingDiv.appendChild(newUpButton);
 
@@ -67,7 +73,7 @@ window.onload = () => {
         newVotingDiv.appendChild(newScoreCounter);
 
         let newDownButton = document.createElement('button');
-        newDownButton.classList.add('voteBtn','downvoteBtn');
+        newDownButton.classList.add('voteBtn', 'downvoteBtn');
         newDownButton.innerHTML = '<i class="fas fa-arrow-alt-circle-down"></i>';
         newVotingDiv.appendChild(newDownButton);
 

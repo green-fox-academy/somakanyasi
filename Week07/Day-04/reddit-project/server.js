@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/submit', (req, res) => {
+  res.sendFile(path.join(__dirname, 'newpost.html'));
+});
+
 app.get('/api/posts', (req, res) => {
   conn.query(`SELECT * FROM posts`, (err, result) => {
     if (err) {
