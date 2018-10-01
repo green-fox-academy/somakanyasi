@@ -3,6 +3,7 @@ window.onload = () => {
   const upvoteRequest = new XMLHttpRequest;
   const downvoteRequest = new XMLHttpRequest;
   const submitRequest = new XMLHttpRequest;
+  const deleteRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
   const fullContent = document.querySelector('#full-content');
@@ -36,6 +37,18 @@ window.onload = () => {
       }
     }
     downvoteRequest.send();
+  }
+
+  const deletePost = (postId) => {
+    deleteRequest.open('DELETE', `${host}/posts/${postId}`, true);
+
+    deleteRequest.onload = () => {
+      if (deleteRequest.status === 200) {
+        const sourcePost = JSON.parse(deleteRequest.response);
+        console.log(sourcePost);
+      }
+    }
+    deleteRequest.send();
   }
 
   postRequest.open('GET', `${host}/api/posts`, true);
@@ -100,6 +113,10 @@ window.onload = () => {
         newDeleteButton.classList.add('deleteBtn');
         newDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
         newFuctionRow.appendChild(newDeleteButton);
+
+        newDeleteButton.addEventListener('click', () => {
+          deletePost(newDeleteButton.parentElement.parentElement.parentElement.id);
+        });
 
         let newDataRow = document.createElement('div');
         newDataRow.classList.add('dataRow');
