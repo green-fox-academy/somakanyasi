@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(235, 229, 223);
+  background-color: #e5d9be;
   margin: 0px;
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 form {
-  background-color: whitesmoke;
+  background-color: #8b6644;
   padding: 30px;
   border-radius: 5px;
 }

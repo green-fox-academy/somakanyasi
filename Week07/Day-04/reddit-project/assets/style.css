@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(235, 229, 223);
+  background-color: #e5d9be;
   margin: 0px;
 }
 
@@ -8,7 +8,7 @@ body {
   width: 100%;
   height: 350px;
   position: relative;
-  background-image: url('ne0213-last-hubble-mission.jpg');
+  background-image: url('courtside_southwest2.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -61,7 +61,7 @@ body {
   flex-direction: row;
   margin-bottom: 20px;
   background-color: rgb(255, 251, 240);
-  width: 90%;
+  width: 100%;
   height: fit-content;
   border-radius: 5px;
 }
@@ -108,7 +108,7 @@ body {
 
 .postBody {
   margin-left: 30px;
-  background-color: rgb(154, 202, 214);
+  background-color: #8b6644;
   width: 100%;
   padding: 10px;
   border-radius: 0px 5px 5px 0px;
@@ -123,7 +123,7 @@ body {
 .postTitle {
   font-size: 28px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: rgb(88, 88, 88);
+  color: rgb(27, 27, 27);
   font-style: normal;
   text-decoration: none;
   opacity: 0,8;
@@ -136,7 +136,7 @@ body {
 .editBtn {
   width: 30px;
   height: 30px;
-  background-color: rgb(154, 202, 214);
+  background-color: #8b6644;
   color: rgb(124, 124, 124);
   font-size: 23px;
   text-align: center;
@@ -156,7 +156,7 @@ body {
 .deleteBtn {
   width: 30px;
   height: 30px;
-  background-color: rgb(154, 202, 214);
+  background-color: #8b6644;
   color: rgb(124, 124, 124);
   font-size: 23px;
   text-align: center;
@@ -182,7 +182,7 @@ body {
 
 p {
   font-size: 16px;
-  color: rgb(150, 150, 150);
+  color: rgb(129, 129, 129);
   opacity: 0,7;
 }
 
@@ -232,4 +232,13 @@ p {
   #full-content {
     display: block;
   }
+
+  #postList {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  #submit-about-box {
+    width: 90%;
+  }  
 }
