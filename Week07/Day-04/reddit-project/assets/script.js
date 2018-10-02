@@ -4,15 +4,12 @@ window.onload = () => {
   const postRequest = new XMLHttpRequest;
   const upvoteRequest = new XMLHttpRequest;
   const downvoteRequest = new XMLHttpRequest;
-  const updateRequest = new XMLHttpRequest;
   const deleteRequest = new XMLHttpRequest;
   let host = 'http://localhost:8080';
 
   const postList = document.querySelector('#postList');
   const submitNewPost = document.querySelector('#submitNewPost');
-  const bounceCounterDiv = document.querySelector('.bounceCounter');
   const bounceNum = document.querySelector('.bounceNum');
-  const welcomeVideo = document.querySelector('#welcome-video');
 
   let bounce = document.querySelector('.bounceBtn');
   let basketball = document.getElementById('basketball');
