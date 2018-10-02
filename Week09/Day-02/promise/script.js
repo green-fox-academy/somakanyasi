@@ -2,13 +2,12 @@
 
 let myPromise = new Promise((fulfill, reject) => {
   setTimeout(() => {
-    fulfill('FULFILLED!'),
-    reject('REJECTED!')
+    reject(new Error('REJECTED!'))
   }, 300)
-})
+});
 
 const onReject = (err) => {
   console.log(err.message)
 }
 
-myPromise.then(fulfilled, onReject())
+myPromise.then(() => {}, onReject)
