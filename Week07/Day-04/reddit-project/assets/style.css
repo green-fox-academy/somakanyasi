@@ -38,9 +38,15 @@ body {
   font-weight: 300;
   position: absolute;
   top: 120px;
-  left: 34%;
+  left: 23%;
   opacity: 0.75;
   color: whitesmoke;
+}
+
+#welcome-video {
+  position: absolute;
+  right: 15px;
+  top: -10px;
 }
 
 #full-content {

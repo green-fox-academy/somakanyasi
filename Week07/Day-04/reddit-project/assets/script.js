@@ -12,16 +12,17 @@ window.onload = () => {
   const submitNewPost = document.querySelector('#submitNewPost');
   const bounceCounterDiv = document.querySelector('.bounceCounter');
   const bounceNum = document.querySelector('.bounceNum');
+  const welcomeVideo = document.querySelector('#welcome-video');
 
   let bounce = document.querySelector('.bounceBtn');
   let basketball = document.getElementById('basketball');
   let topPosition = 0;
   let bounceCounter = 0;
 
-  let homerAudio = new Audio("/assets/Cartoon10.wav");
-  let bounceAudio = new Audio("/assets/BOUNCE1.wav");
-  let voteAudio = new Audio("/assets/thankyouForYourVote.m4a");
-  let kandalloAudio = new Audio("/assets/Kandallo.m4a")
+  let homerAudio = new Audio("/assets/sounds/Cartoon10.wav");
+  let bounceAudio = new Audio("/assets/sounds/BOUNCE1.wav");
+  let voteAudio = new Audio("/assets/sounds/thankyouForYourVote.m4a");
+  let kandalloAudio = new Audio("/assets/sounds/Kandallo.m4a")
 
   function changeTop() {
     topPosition += 400;
