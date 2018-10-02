@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = () => {
   const postRequest = new XMLHttpRequest;
   const upvoteRequest = new XMLHttpRequest;
@@ -16,6 +18,11 @@ window.onload = () => {
   let topPosition = 0;
   let bounceCounter = 0;
 
+  let homerAudio = new Audio("/assets/Cartoon10.wav");
+  let bounceAudio = new Audio("/assets/BOUNCE1.wav");
+  let voteAudio = new Audio("/assets/thankyouForYourVote.m4a");
+  let kandalloAudio = new Audio("/assets/Kandallo.m4a")
+
   function changeTop() {
     topPosition += 400;
     basketball.style.backgroundPosition = topPosition + 'px';
@@ -23,6 +30,8 @@ window.onload = () => {
 
   bounce.addEventListener('click', () => {
     bouncing();
+    bounceAudio.currentTime = 0;
+    bounceAudio.play();
     bounceNum.textContent ='';
     bounceCounter ++;
     bounceNum.textContent = bounceCounter;
@@ -98,6 +107,7 @@ window.onload = () => {
         newVotingDiv.appendChild(newUpButton);
 
         newUpButton.addEventListener('click', () => {
+          voteAudio.play();
           upvote(newUpButton.parentElement.parentElement.id);
           bouncing();
           newScoreCounter.textContent = Number(newScoreCounter.textContent) + 1;
@@ -114,6 +124,7 @@ window.onload = () => {
         newVotingDiv.appendChild(newDownButton);
 
         newDownButton.addEventListener('click', () => {
+          kandalloAudio.play();
           downvote(newDownButton.parentElement.parentElement.id);
           bouncing();
           newScoreCounter.textContent = Number(newScoreCounter.textContent) - 1;
@@ -155,6 +166,7 @@ window.onload = () => {
         newToolButtons.appendChild(newDeleteButton);
 
         newDeleteButton.addEventListener('click', () => {
+          homerAudio.play();
           newDeleteButton.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
           deletePost(element.post_id);
         });
