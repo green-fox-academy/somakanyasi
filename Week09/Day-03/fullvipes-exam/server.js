@@ -31,6 +31,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.post('/test', (req, res) => {
+  let inputMatrix = req.body.matrix;
+  if (inputMatrix) {
+    res.status(200).json(
+      increasingByColumns(inputMatrix)
+    )
+  }
+})
+
 app.post('/matrix', (req, res) => {
   let inputMatrix = req.body.matrix;
   if (isSquare(inputMatrix) && increasingByRows(inputMatrix)) {
@@ -109,9 +118,11 @@ const increasingByColumns = (inputMatrix) => {
   matrixRows.forEach(rows => {
     matrixNumbers.push(rows.split(' '));
   })
+  console.log(matrixNumbers);
+  
   for (let i = 0; i < matrixNumbers.length; i++) {
     for (let j = 0; j < matrixNumbers[i].length; j++) {
-      if (parseInt(matrixNumbers[i][j]) >= parseInt(matrixNumbers[i + 1][j])) {
+      if (parseInt(matrixNumbers[i][j]) >= parseInt(matrixNumbers[i][j])) {
         return false;
       }
     }
