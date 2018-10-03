@@ -81,6 +81,23 @@ app.get('/questions', (req,res) => {
   })
 });
 
+app.post('/questions', (req, res) => {
+  conn.query(`INSERT INTO questions`)
+});
+
+app.delete('/delete/:id', (req, res) => {
+  let questionId = req.params.id;
+
+  conn.query('DELETE FROM `questions`, `answers` USING `questions`, `answers` WHERE questions.id = answers.question_id AND questions.id = ? AND answers.question_id = ?', [questionId, questionId], (err, result) => {
+    if (err) {
+      console.log('Error connecting to database', err.message);
+      res.status(500).send('Database error');
+      return;
+    }
+    res.status(200).send(`The number ${questionId} question has been removed from database.`)
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is up and running on port ${PORT}`)
 });
