@@ -33,10 +33,21 @@ app.get('/', (req, res) => {
 
 app.post('/matrix', (req, res) => {
   let inputMatrix = req.body.matrix;
-  if (inputMatrix) {
-    res.status(200).json(
-      increasingByRows(inputMatrix)
-    );
+  if (isSquare(inputMatrix) && increasingByRows(inputMatrix)) {
+    conn.query(`INSERT INTO matrixes (matrixNumbers) VALUES (?)`, [inputMatrix], (err, result) => {
+      if (err) {
+        console.log('Error connecting to database', err.message);
+        res.status(500).send('Database error');
+        return;
+      }
+      res.status(200).json({
+        status: 'This matrix is increasing'
+      })
+    });
+  } else {
+    res.status(200).json({
+      status: 'This matrix is not increasing'
+    })
   }
 });
 
@@ -82,13 +93,28 @@ const increasingByRows = (inputMatrix) => {
   matrixRows.forEach(rows => {
     matrixNumbers.push(rows.split(' '));
   })
-  console.log(matrixNumbers);
   for (let i = 0; i < matrixNumbers.length; i++) {
     for (let j = 0; j < matrixNumbers[i].length - 1; j++) {
       if (parseInt(matrixNumbers[i][j]) >= parseInt(matrixNumbers[i][j + 1])) {
         return false;
       }      
     }    
+  }
+  return true;
+}
+
+const increasingByColumns = (inputMatrix) => {
+  let matrixRows = inputMatrix.split('\n');
+  let matrixNumbers = [];
+  matrixRows.forEach(rows => {
+    matrixNumbers.push(rows.split(' '));
+  })
+  for (let i = 0; i < matrixNumbers.length; i++) {
+    for (let j = 0; j < matrixNumbers[i].length; j++) {
+      if (parseInt(matrixNumbers[i][j]) >= parseInt(matrixNumbers[i + 1][j])) {
+        return false;
+      }
+    }
   }
   return true;
 }
