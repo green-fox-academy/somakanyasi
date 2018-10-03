@@ -68,6 +68,19 @@ app.get('/game', (req, res) => {
   })
 })
 
+app.get('/questions', (req,res) => {
+  conn.query(`SELECT * FROM questions`, (err, result) => {
+    if (err) {
+      console.log('Error connecting to database', err.message);
+      res.status(500).send('Database error');
+      return;
+    }
+    res.status(200).json({
+      result
+    })
+  })
+});
+
 app.listen(PORT, () => {
   console.log(`Server is up and running on port ${PORT}`)
 });
