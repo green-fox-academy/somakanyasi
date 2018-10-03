@@ -31,6 +31,34 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.post('/matrix', (req, res) => {
+  let inputMatrix = req.body.matrix;
+  if (inputMatrix) {
+    res.status(200).json(
+      isSquare(inputMatrix)
+    );
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+const inputConverter = (inputMatrix) => {
+  let matrixNumbers = [];
+  let matrixRows = inputMatrix.split('\n');
+  matrixRows.forEach(rows => {
+    matrixNumbers.push(rows.split(' '));    
+  });
+  return matrixNumbers;
+}
+
+const isSquare = (inputMatrix) => {
+  let matrixRows = inputMatrix.split('\n');
+  for (let i = 0; i < matrixRows.length; i++) {
+    if (matrixRows.length !== matrixRows[i].split(' ').length) {
+      return false
+    }
+  }
+  return true;
+}
