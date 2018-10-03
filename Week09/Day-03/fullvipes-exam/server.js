@@ -40,6 +40,19 @@ app.post('/matrix', (req, res) => {
   }
 });
 
+app.get('/matrices', (req, res) => {
+  conn.query(`SELECT * FROM matrix`, (error, result) => {
+    if (err) {
+      console.log('Error connecting to database', err.message);
+      res.status(500).send('Database error');
+      return;
+    }
+    res.status(200).json({
+      matrixes: result,
+    })
+  });
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
@@ -62,3 +75,5 @@ const isSquare = (inputMatrix) => {
   }
   return true;
 }
+
+const 
