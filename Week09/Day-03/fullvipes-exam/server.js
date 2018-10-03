@@ -35,7 +35,7 @@ app.post('/matrix', (req, res) => {
   let inputMatrix = req.body.matrix;
   if (inputMatrix) {
     res.status(200).json(
-      isSquare(inputMatrix)
+      increasingByRows(inputMatrix)
     );
   }
 });
@@ -72,6 +72,23 @@ const isSquare = (inputMatrix) => {
     if (matrixRows.length !== matrixRows[i].split(' ').length) {
       return false
     }
+  }
+  return true;
+}
+
+const increasingByRows = (inputMatrix) => {
+  let matrixRows = inputMatrix.split('\n');
+  let matrixNumbers = [];
+  matrixRows.forEach(rows => {
+    matrixNumbers.push(rows.split(' '));
+  })
+  console.log(matrixNumbers);
+  for (let i = 0; i < matrixNumbers.length; i++) {
+    for (let j = 0; j < matrixNumbers[i].length - 1; j++) {
+      if (parseInt(matrixNumbers[i][j]) >= parseInt(matrixNumbers[i][j + 1])) {
+        return false;
+      }      
+    }    
   }
   return true;
 }
