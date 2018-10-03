@@ -41,9 +41,9 @@ app.post('/matrix', (req, res) => {
 });
 
 app.get('/matrices', (req, res) => {
-  conn.query(`SELECT * FROM matrix`, (error, result) => {
-    if (err) {
-      console.log('Error connecting to database', err.message);
+  conn.query(`SELECT * FROM matrixes`, (error, result) => {
+    if (error) {
+      console.log('Error connecting to database', error.message);
       res.status(500).send('Database error');
       return;
     }
@@ -75,5 +75,3 @@ const isSquare = (inputMatrix) => {
   }
   return true;
 }
-
-const 
