@@ -19,6 +19,7 @@ const conn = mysql.createConnection({
   user: 'root',
   password: '10!GFA25bbTp',
   database: 'quizapp',
+  multipleStatements: true,
 });
 
 conn.connect((err) => {
@@ -89,14 +90,14 @@ app.post('/questions', (req, res) => {
   let newSecondAnswer = req.body.answer2
   let newThirdAnswer = req.body.answer3
   let newFourthAnswer = req.body.answer4
-  let isCorrect = req.body.is_correct
 
-  conn.query(`INSERT INTO questions (question) VALUE ?;`, [newQuestion], (err, result) => {
+
+  conn.query(`INSERT INTO questions (question) VALUES (?);`, [newQuestion], (err, result) => {
     if (err) {
       console.log('Error connecting to database', err.message);
       res.status(500).send('Database error');
       return;
-    } conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES (?,?,?)(?,?,?)(?,?,?)(?,?,?);`, [result.insertId, newFirstAnswer, isCorrect], [result.insertId, newSecondAnswer, isCorrect],   [result.insertId, newThirdAnswer, isCorrect], [result.insertId, newFourthAnswer, isCorrect], (err, response) => {
+    } conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES (${result.insertId}, '${newFirstAnswer}', 1),(${result.insertId}, '${newSecondAnswer}', 0),(${result.insertId}, '${newThirdAnswer}', 0),(${result.insertId}, '${newFourthAnswer}', 0);`, (err, response) => {
       if (err) {
         console.log('Error connecting to database', err.message);
         res.status(500).send('Database error');
