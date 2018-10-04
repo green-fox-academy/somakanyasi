@@ -85,19 +85,36 @@ app.get('/questions', (req,res) => {
 });
 
 app.post('/questions', (req, res) => {
-  let newQuestion = req.body.question
+
+  console.log(req.body);
+  console.log(req.body.new_answer);
+
+  let whichOneIsCorrect = [];
+  const correctAnswerGetter = () => {
+    if (req.body.new_answer === 'radio1') {
+      whichOneIsCorrect = [1, 0, 0, 0];
+    } else if (req.body.new_answer === 'radio2') {
+      whichOneIsCorrect = [0, 1, 0, 0];
+    } else if (req.body.new_answer === 'radio3') {
+      whichOneIsCorrect = [0, 0, 1, 0];
+    } else if (req.body.new_answer === 'radio4') {
+      whichOneIsCorrect = [0, 0, 0, 1];
+    }
+    return whichOneIsCorrect;
+  }
+
+  let newQuestion = req.body.new_question
   let newFirstAnswer = req.body.answer1
   let newSecondAnswer = req.body.answer2
   let newThirdAnswer = req.body.answer3
   let newFourthAnswer = req.body.answer4
-
 
   conn.query(`INSERT INTO questions (question) VALUES (?);`, [newQuestion], (err, result) => {
     if (err) {
       console.log('Error connecting to database', err.message);
       res.status(500).send('Database error');
       return;
-    } conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES (${result.insertId}, '${newFirstAnswer}', 1),(${result.insertId}, '${newSecondAnswer}', 0),(${result.insertId}, '${newThirdAnswer}', 0),(${result.insertId}, '${newFourthAnswer}', 0);`, (err, response) => {
+    } conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES (${result.insertId}, '${newFirstAnswer}', ${correctAnswerGetter()[0]}),(${result.insertId}, '${newSecondAnswer}', ${correctAnswerGetter()[1]}),(${result.insertId}, '${newThirdAnswer}', ${correctAnswerGetter()[2]}),(${result.insertId}, '${newFourthAnswer}', ${correctAnswerGetter()[3]});`, (err, response) => {
       if (err) {
         console.log('Error connecting to database', err.message);
         res.status(500).send('Database error');
