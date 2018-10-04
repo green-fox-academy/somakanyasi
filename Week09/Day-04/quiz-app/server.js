@@ -116,7 +116,7 @@ app.post('/questions', (req, res) => {
   });
 });
 
-app.delete('/delete/:id', (req, res) => {
+app.delete('/questions/:id', (req, res) => {
   let questionId = req.params.id;
 
   conn.query('DELETE FROM `questions`, `answers` USING `questions`, `answers` WHERE questions.id = answers.question_id AND questions.id = ? AND answers.question_id = ?', [questionId, questionId], (err, result) => {
