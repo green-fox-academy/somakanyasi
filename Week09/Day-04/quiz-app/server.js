@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
+const cors = require('cors');
 const app = express();
 const PORT = 8080;
 
@@ -11,6 +12,7 @@ app.use('/assets', express.static('assets'));
 
 app.use(bodyParser.urlencoded( {extended: false} ));
 app.use(bodyParser.json());
+app.use(cors());
 
 const conn = mysql.createConnection({
   host: 'localhost',
@@ -41,7 +43,7 @@ app.get('/game', (req, res) => {
   conn.query(`SELECT * 
   FROM questions 
   INNER JOIN answers ON questions.id = answers.question_id
-  WHERE questions.id = ${postId}`, (err, result) => {
+  WHERE questions.id = ?`, [postId], (err, result) => {
     if (err) {
       console.log('Error connecting to database', err.message);
       res.status(500).send('Database error');
@@ -82,7 +84,36 @@ app.get('/questions', (req,res) => {
 });
 
 app.post('/questions', (req, res) => {
-  conn.query(`INSERT INTO questions`)
+  let newQuestion = req.body.question
+  let newFirstAnswer = req.body.answer1
+  let newSecondAnswer = req.body.answer2
+  let newThirdAnswer = req.body.answer3
+  let newFourthAnswer = req.body.answer4
+  let isCorrect = req.body.is_correct
+
+  conn.query(`INSERT INTO questions (question) VALUE ?;`, [newQuestion], (err, result) => {
+    if (err) {
+      console.log('Error connecting to database', err.message);
+      res.status(500).send('Database error');
+      return;
+    } conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES (?,?,?)(?,?,?)(?,?,?)(?,?,?);`, [result.insertId, newFirstAnswer, isCorrect], [result.insertId, newSecondAnswer, isCorrect],   [result.insertId, newThirdAnswer, isCorrect], [result.insertId, newFourthAnswer, isCorrect], (err, response) => {
+      if (err) {
+        console.log('Error connecting to database', err.message);
+        res.status(500).send('Database error');
+        return;
+      }
+      conn.query(`SELECT * FROM questions INNER JOIN answers ON questions.id = answers.question_id WHERE questions.id = ?`, [result.insertId], (err, newResult) => {
+        if (err) {
+          console.log('Error connecting to database', err.message);
+          res.status(500).send('Database error');
+          return;
+        }
+        res.status(200).json({
+          newResult
+        })
+        })
+    });
+  });
 });
 
 app.delete('/delete/:id', (req, res) => {
