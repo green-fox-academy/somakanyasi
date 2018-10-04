@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 const randomNumGen = () => {
-  return Math.floor(Math.random() * 8) + 1;
+  return Math.floor(Math.random() * 9) + 1;
 }
 
 app.get('/game', (req, res) => {
@@ -126,9 +126,7 @@ app.post('/questions', (req, res) => {
           res.status(500).send('Database error');
           return;
         }
-        res.status(200).json({
-          newResult
-        })
+        res.status(200).redirect('/questions');
         })
     });
   });

@@ -43,8 +43,8 @@ window.onload = () => {
       newQuestionBox.appendChild(newDeleteButton);
 
       newDeleteButton.addEventListener('click', (e) => {
-        console.log(e.target.parentElement);
         e.target.parentElement.style.display = 'none';
+        console.log(element.id);
         deleteQuestion(element.id);
       });
     })

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> class="text-input"
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,29 +16,29 @@
     <div id="creation-box">
       <form action="http://localhost:8080/questions" method="POST" enctype="application/json">
         <h1>Create a new question</h1>
-        <input type="text" id="question-input" name="new_question" placeholder="Type your question here">
+        <input type="text" id="question-input" class="text-input" name="new_question" placeholder="Type your question here">
         <h3>Answers</h3>
-        <div id="field1">
+        <div id="field1" class="input-field">
           <h3>#1</h3>
-          <input type="text" name="answer1" id="first-answer" placeholder="Type your answer here">
-          <input type="radio" name="new_answer" value="radio1">
+          <input type="text" name="answer1" class="text-input" id="first-answer" placeholder="Type your answer here" required>
+          <input type="radio" name="new_answer" value="radio1" required>
         </div>
-        <div id="field2">
+        <div id="field2" class="input-field">
             <h3>#2</h3>
-            <input type="text" name="answer2" id="second-answer" placeholder="Type your answer here">
-            <input type="radio" name="new_answer" value="radio2">
+            <input type="text" name="answer2" class="text-input" id="second-answer" placeholder="Type your answer here" required>
+            <input type="radio" name="new_answer" value="radio2" required>
         </div>
-        <div id="field3">
+        <div id="field3" class="input-field">
             <h3>#3</h3>
-            <input type="text" name="answer3" id="third-answer" placeholder="Type your answer here">
-            <input type="radio" name="new_answer" value="radio3">
+            <input type="text" name="answer3" class="text-input" id="third-answer" placeholder="Type your answer here" required>
+            <input type="radio" name="new_answer" value="radio3" required>
         </div>
-        <div id="field4">
+        <div id="field4" class="input-field">
             <h3>#4</h3>
-            <input type="text" name="answer4" id="fourth-answer" placeholder="Type your answer here">
-            <input type="radio" name="new_answer" value="radio4">
+            <input type="text" name="answer4" class="text-input" id="fourth-answer" placeholder="Type your answer here" required>
+            <input type="radio" name="new_answer" value="radio4" required>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit-button">Submit</button>
       </form>
     </div>
 </div>
