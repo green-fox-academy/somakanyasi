@@ -9,7 +9,14 @@ body {
   align-items: center;
 }
 
-#main-content{
+#all-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#creation-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,3 +27,5 @@ body {
   display: flex;
   margin: 10px;
 }
+
+

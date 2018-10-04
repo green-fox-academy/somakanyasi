@@ -3,7 +3,7 @@
 window.onload = () => {
   const deleteRequest = new XMLHttpRequest;
 
-  const mainContent = document.querySelector('#main-content');
+  const allQuestions = document.querySelector('#all-questions');
 
   const host = 'http://localhost:8080';
 
@@ -30,7 +30,7 @@ window.onload = () => {
       
       let newQuestionBox = document.createElement('div');
       newQuestionBox.classList.add('question-box');
-      mainContent.appendChild(newQuestionBox);
+      allQuestions.appendChild(newQuestionBox);
 
       let newQuestion = document.createElement('div');
       newQuestion.classList.add('question');
