@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 
 const randomNumGen = () => {
-  return Math.floor(Math.random() * 10) + 1;
+  return Math.floor(Math.random() * 8) + 1;
 }
 
 app.get('/game', (req, res) => {
