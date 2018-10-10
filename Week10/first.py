@@ -329,3 +329,6 @@ test_animals = AnimalTesting()
 test_animals.get_type(cat)
 test_animals.get_type(dog)
 
+dog.multiple_sounds(4)
+dog.multiple_sounds()
+
