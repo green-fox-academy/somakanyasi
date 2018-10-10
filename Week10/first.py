@@ -225,7 +225,20 @@ quote_list = long_string.split(" ")
 print(quote_list)
 
 
+#File input/output
 
+test_file = open("test.txt", "wb")  #"wb" mode means writing into a file
+print(test_file.mode)  #prints "wb"
+print(test_file.name)  #prints "test.txt"
+
+test_file.write(bytes("Write me to the file \n", "UTF -8"))
+test_file.close()
+
+test_file = open("test.txt", "r+")  #"r+" mode means reading and writing
+text_in_file = test_file.read()
+print(text_in_file)
+
+# os.remove("test.txt")    -   this is how you remove the file
 
 
 
