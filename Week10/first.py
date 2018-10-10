@@ -293,4 +293,25 @@ print(cat.toString())
 
 #Inheritance
 
+class Dog(Animal):
+  __owner = None
 
+  def __init__(self, name, height, weight, sound, owner):
+    super(Dog, self).__init__(name, height, weight, sound)
+    self.__owner = owner
+
+  def set_owner(self, owner):
+    self.__owner = owner
+
+  def get_owner(self):
+    return self.__owner
+
+  def get_type(self):
+    print("Dog")
+    
+  def toString(self):
+    return "{} is {} cm tall and {} kilograms and say {}. His owner is {}".format(self.__name, self.__height, self.__weight, self.__sound, self.__owner)
+
+dog = Dog('Sam8u', 3, 4, "wuff", "kert")
+
+print(dog.toString())
