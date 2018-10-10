@@ -1,6 +1,7 @@
 import random
 import sys
 import os
+from sys import stdin
 
 print("Hello World")
 
@@ -194,4 +195,38 @@ def addNumber(fNum, lNum):
   return sumNum
 
 print(addNumber(1, 4))
+
+print('\n')
+
+print("What is your name")
+name = sys.stdin.readline()
+print("Hello ", name)
+
+
+#String
+
+long_string = "I'll catch you if you fall - The Floor"
+
+print(long_string[0:4])
+print(long_string[-5:])
+print(long_string[:-5])
+print(long_string[:4] + " be there")
+
+print("%c is my %s letter and my number %d number is %.5f" % ('X', 'favorite', 1, .14))
+
+print(long_string.capitalize())
+print(long_string.find("Floor"))
+print(long_string.isalpha())      #checks if all the chars are letters
+print(long_string.isalnum())      #checks if all the chars are numbers
+print(len(long_string))
+print(long_string.replace("Floor", "Ground"))
+print(long_string.strip())
+quote_list = long_string.split(" ")
+print(quote_list)
+
+
+
+
+
+
 
