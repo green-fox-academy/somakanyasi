@@ -247,9 +247,9 @@ class Animal:
 
   def __init__(self, name, height, weight, sound):
     self._name = name
-    self.height = height
-    self.weight = weight
-    self.sound = sound
+    self._height = height
+    self._weight = weight
+    self._sound = sound
 
   def set_name(self, name):
     self._name = name
@@ -258,28 +258,28 @@ class Animal:
     return self._name
 
   def set_height(self, height):
-    self.height = height
+    self._height = height
 
   def get_height(self):
-    return self.height
+    return self._height
 
   def set_weight(self, weight):
-    self.weight = weight
+    self._weight = weight
 
   def get_weight(self):
-    return self.weight
+    return self._weight
 
   def set_sound(self, sound):
-    self.sound = sound
+    self._sound = sound
 
   def get_sound(self):
-    return self.sound
+    return self._sound
 
   def get_type(self):
     print("Animal")
 
   def toString(self):
-    return "{} is {} cm tall and {} kilograms and say {}".format(self._name, self.height, self.weight, self.sound)
+    return "{} is {} cm tall and {} kilograms and say {}".format(self._name, self._height, self._weight, self._sound)
 
 
 cat = Animal('Whiskers', 33, 10, 'Meow')
@@ -293,20 +293,39 @@ class Dog(Animal):
 
   def __init__(self, name, height, weight, sound, owner):
     super().__init__(name, height, weight, sound)
-    self.owner = owner
+    self._owner = owner
 
   def set_owner(self, owner):
-    self.owner = owner
+    self._owner = owner
 
   def get_owner(self):
-    return self.owner
+    return self._owner
 
   def get_type(self):
     print("Dog")
     
   def toString(self):
-    return "{} is {} cm tall and {} kilograms and say {}. His owner is {}".format(self._name, self.height, self.weight, self.sound, self.owner)
+    return "{} is {} cm tall and {} kilograms and say {}. His owner is {}".format(self._name, self._height, self._weight, self._sound, self._owner)
+
+  def multiple_sounds(self, how_many = None):
+    if how_many is None:
+      print(self.get_sound())
+    else:
+      print(self.get_sound() * how_many)
 
 dog = Dog('Sam8u', 3, 4, "wuff", "Me")
 
 print(dog.toString())
+
+
+#Polymorphism
+
+class AnimalTesting:
+  def get_type(self, animal):
+    animal.get_type()
+
+test_animals = AnimalTesting()
+
+test_animals.get_type(cat)
+test_animals.get_type(dog)
+
