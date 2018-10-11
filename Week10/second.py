@@ -43,6 +43,18 @@ class Pupil(CastleKilmereMember):
       'Potions': False,
       'Transfiguration': False}
 
+  @classmethod
+  def cleon(cls):
+    return cls('Cleon Bery', 2008, 'male', 'House of Courage', 2018, ('Cotton', 'owl'))
+
+  @classmethod
+  def flynn(cls):
+    return cls('Flynn Gibbs', 2008, 'male', 'House of Courage', 2018, ('Twiggles', 'owl'))
+
+  @classmethod
+  def cassidy(cls):
+    return cls('Cassidy Ambergem', 2007, 'female', 'House of Courage', 2018, ('Ramses', 'cat'))
+
   @staticmethod
   def passed(grade):
     grades = {
