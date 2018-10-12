@@ -28,7 +28,11 @@ df2 = pd.read_csv(filename2)
 # header("All the unique values of the 'App' column")
 # print(df.App.unique())
 
+#get how many duplicated lines the data-frame has
+header('number of duplicated lines')
+print(df.duplicated().sum())
+
 #drop duplicates of the data-frame
-header('dropping the duplicated rows of the data-frame')
-df.drop_duplicates(keep='first', inplace=True)
+# header('dropping the duplicated rows of the data-frame')
+# df.drop_duplicates(keep='first', inplace=True)
 
