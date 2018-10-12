@@ -36,3 +36,6 @@ print(df.duplicated().sum())
 # header('dropping the duplicated rows of the data-frame')
 # df.drop_duplicates(keep='first', inplace=True)
 
+#collect the data by groups
+#header('group the data-frae by Genres')
+#print(df.groupby().count())
