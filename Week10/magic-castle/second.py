@@ -71,7 +71,8 @@ class Pupil(CastleKilmereMember):
   def toString(self):
     return f"My name is {self._name} and I'm a student of the {self.house} class {self.start_year}. Also I have an {self.pet_type} and it's name is {self.pet_name}."
 
-
+bank = Pupil('Bánk', 1990, 'male', 'Belvárosi', 1997, ('Lucy', 'vizsla'))
+print(bank.toString())
 
 class Professor(CastleKilmereMember):
 
