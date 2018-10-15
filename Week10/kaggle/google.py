@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import operator
 
 pd.set_option('display.max_row', 50)
 pd.set_option('display.max_columns', 15)
@@ -29,8 +30,8 @@ df2 = pd.read_csv(filename2)
 # print(df.App.unique())
 
 #get how many duplicated lines the data-frame has
-header('number of duplicated lines')
-print(df.duplicated().sum())
+# header('number of duplicated lines')
+# print(df.duplicated().sum())
 
 #drop duplicates of the data-frame
 # header('dropping the duplicated rows of the data-frame')
@@ -61,4 +62,17 @@ print(df.duplicated().sum())
 # header('check if Andriod Version col has null value')
 # print(df.isnull().groupby('Andriod Ver').count())
 
+#to group values of a column and count the occurances
+genre_list = df.Genres
+genre_dict ={}
 
+for i in genre_list:
+    keys = i.split(';')
+    for key in keys:
+        if key in genre_dict:
+            genre_dict[key]+=1
+        else:
+            genre_dict[key]=1
+
+print(sorted(genre_dict.items(), key=lambda x: -x[1]))
+print(sorted(genre_dict.items(), key=operator.itemgetter(1), reverse = True))
