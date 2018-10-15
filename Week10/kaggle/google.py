@@ -45,7 +45,20 @@ print(df.duplicated().sum())
 # header('shifting the data of row 10472')
 # print(df.iloc[10472, 2:] = df.iloc[10472, 1:].shift(1))
 
-#to change the valu of a specific cell
+#to change the value of a specific cell
 # header('adding a category to row 10472')
 # print(df.set_value(10472, 'Category', 'PHOTOGRAPHY'))
+
+#to check if some of the columns have a null value
+# header('check if Rating col has null value')
+# print(df.isnull().groupby('Rating').count())
+# header('check if Type col has null value')
+# print(df.isnull().groupby('Type').count())
+# header('check if Genres col has null value')
+# print(df.isnull().groupby('Genres').count())
+# header('check if Current Version col has null value')
+# print(df.isnull().groupby('Current Ver').count())
+# header('check if Andriod Version col has null value')
+# print(df.isnull().groupby('Andriod Ver').count())
+
 
