@@ -93,3 +93,7 @@ for x in size_list:
 average_in_MB = (sum_of_all / (1024 ** 2)) / len(size_list)
 
 print(average_in_MB)
+
+#lowest number of reviews:
+# header(App with the lowest number of reviews)
+# print(df.Reviews.min())
