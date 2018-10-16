@@ -74,5 +74,22 @@ for i in genre_list:
         else:
             genre_dict[key]=1
 
-print(sorted(genre_dict.items(), key=lambda x: -x[1]))
-print(sorted(genre_dict.items(), key=operator.itemgetter(1), reverse = True))
+# print(sorted(genre_dict.items(), key=lambda x: -x[1]))
+# print(sorted(genre_dict.items(), key=operator.itemgetter(1), reverse = True
+
+#calculate the average file size
+
+size_list = df['Size'].replace('Varies with device', 'NaN')
+sum_of_all = 0
+
+for x in size_list:
+    if x.lower()[-1] == 'm':
+        a = float(x[:-1]) * 1024 * 1024
+        sum_of_all += a
+    elif x.lower()[-1] == 'k':
+        b = float(x[:-1]) * 1024
+        sum_of_all += b
+
+average_in_MB = (sum_of_all / (1024 ** 2)) / len(size_list)
+
+print(average_in_MB)
