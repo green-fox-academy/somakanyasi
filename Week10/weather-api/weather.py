@@ -15,8 +15,9 @@ def home_page():
 @app.route('/city', methods=["POST"])
 def city_display():
     chosen_city = request.form["city"]
+    country_code = request.form["country_code"]
     print(chosen_city)
-    r = requests.get('https://api.openweathermap.org/data/2.5/weather?q='+chosen_city+',hu&units=metric&appid=25dfbbf7d7f7ddb9b7494961dfd68d99')
+    r = requests.get('https://api.openweathermap.org/data/2.5/weather?q='+chosen_city+','+country_code+'&units=metric&appid=25dfbbf7d7f7ddb9b7494961dfd68d99')
     print(r)
     json_object = r.json()
     print(json_object)

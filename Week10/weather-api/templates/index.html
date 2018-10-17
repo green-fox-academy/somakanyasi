@@ -9,7 +9,9 @@
 <body>
   <form action="http://127.0.0.1:5000/city" method="POST">
     <label for="chosen_city">Choose your city: </label>
-    <input type="text" name="city" id="chosen_city">
+    <input type="text" name="city" id="chosen_city" width="25%" required> <br>
+    <label for="country_code">Country code:</label>
+    <input type="text" name="country_code" id="country_code" width="25%" required> <br>
     <button type="submit">Choose</button>
   </form>
 </body>
