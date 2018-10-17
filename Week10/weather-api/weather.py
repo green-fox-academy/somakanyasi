@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, json
+from flask import Flask, render_template, jsonify, json, request
 from flask_cors import CORS
 import requests
 import lxml
@@ -10,7 +10,7 @@ weather_req = requests.get('https://api.openweathermap.org/data/2.5/weather?q=Bu
 
 print(weather_req.json())
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET"])
 def home_page():
     return render_template("index.html")
 
