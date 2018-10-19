@@ -4,6 +4,8 @@ from tweepy import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
+import numpy as np
+import pandas as pd
 import twitter_credentials
 
 # # # # TWITTER CLIENT # # # #
@@ -13,6 +15,9 @@ class TwitterClient():
 		self.auth = TwitterAuthenticator().authenticate_twitter_app()
 		self.twitter_client = API(self.auth)
 		self.twitter_user = twitter_user
+
+	def get_twitter_client_api(self):
+		return self.twitter_client
 
 	def get_user_timeline_tweets(self, number_of_tweets):
 		tweets = []
