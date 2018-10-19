@@ -1,25 +1,38 @@
+from tweepy import API
+from tweepy import Cursor
 from tweepy import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
 import twitter_credentials
 
+# # # # TWITTER AUTHENTICATER # # # #
+class TwitterAuthenticator():
+
+	def authenticate_twitter_app(self):
+		auth = OAuthHandler(twitter_credentials.Twitter_API_key, twitter_credentials.Twitter_secret_API_key)
+		auth.set_access_token(twitter_credentials.Access_Token, twitter_credentials.Access_Token_secret)
+		return auth
+
+# # # # TWITTER STREAMER # # # #
 class TwitterStreamer():
 	'''
 	Class for streaming and processing live tweets
 	'''
+	def __init__(self):
+		self.twitter_authenticator = TwitterAuthenticator()
+
 	def stream_tweets(self, fetched_tweets_filename, hash_tag_list):
 		#this handles Twitter authentication and the connection to the Twitter Streaming API.
-		listener = StdOutListener(fetched_tweets_filename)
-		auth = OAuthHandler(twitter_credentials.Twitter_API_key, twitter_credentials.Twitter_secret_API_key)
-		auth.set_access_token(twitter_credentials.Access_Token, twitter_credentials.Access_Token_secret)
-
+		listener = TwitterListener(fetched_tweets_filename)
+		auth = self.twitter_authenticator.authenticate_twitter_app()
 		stream = Stream(auth, listener)
 
+		#this line filter Twitter Streams to capture data by the keywords:
 		stream.filter(track=hash_tag_list)
 
-
-class StdOutListener(StreamListener):
+# # # # TWITTER STREAM LISTENER # # # #
+class TwitterListener(StreamListener):
 	'''
 	This is a basic listener class that just prints received tweets to stdout
 	'''
