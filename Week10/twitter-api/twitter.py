@@ -93,6 +93,10 @@ class TweetAnalyzer():
 	'''
 	def tweets_to_data_frame(self, tweets):
 		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
+
+		#creates the id column to our dataframe and then fills it out with the proper values
+		df['id'] = np.array([tweet.id for tweet in tweets])
+
 		return df
 
 
@@ -105,6 +109,11 @@ if __name__ == "__main__":
 
 	tweets = api.user_timeline(screen_name="realDonaldTrump", count=20)
 
-	df = tweet_analyzer.tweets_to_data_frame(tweets)
+	#to check what kind of information we can get from the first tweet
+	# print(dir(tweets[0]))
 
-	print(df.head)
+	#gives back how many times this particular tweet has been retweeted
+	# print(tweets[0].retweet_count)    
+
+	df = tweet_analyzer.tweets_to_data_frame(tweets)
+	print(df.head(10))
