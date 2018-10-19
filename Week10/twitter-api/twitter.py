@@ -10,7 +10,7 @@ class TwitterStreamer():
 	'''
 	def stream_tweets(self, fetched_tweets_filename, hash_tag_list):
 		#this handles Twitter authentication and the connection to the Twitter Streaming API.
-		listener = StdOutListener()
+		listener = StdOutListener(fetched_tweets_filename)
 		auth = OAuthHandler(twitter_credentials.Twitter_API_key, twitter_credentials.Twitter_secret_API_key)
 		auth.set_access_token(twitter_credentials.Access_Token, twitter_credentials.Access_Token_secret)
 
@@ -41,4 +41,9 @@ class StdOutListener(StreamListener):
 		
 
 if __name__ == "__main__":
-	pass
+	
+	hash_tag_list = ['donald trump', 'barack obama']
+	fetched_tweets_filename = "tweets.json"
+
+	twitter_streamer = TwitterStreamer()
+	twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)
