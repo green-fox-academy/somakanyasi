@@ -86,15 +86,19 @@ class TwitterListener(StreamListener):
 			#cutting the run of the program by returning False on data method in case rate limit is exceeded
 			return False
 		print(status)
+
+class TweetAnalyzer():
+	'''
+	Functionality for analyzing and categorizying content from tweets.
+	'''
+	pass
 		
 
 if __name__ == "__main__":
 	
-	hash_tag_list = ['donald trump', 'barack obama']
-	fetched_tweets_filename = "tweets.json"
+	twitter_client = TwitterClient()
+	api = twitter_client.get_twitter_client_api()
 
-	twitter_client = TwitterClient('realDonaldTrump')
-	print(twitter_client.get_user_timeline_tweets(1))
+	tweets = api.user_timeline(screen_name="realDonaldTrump", count=20)
 
-	# twitter_streamer = TwitterStreamer()
-	# twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)
+	print(tweets)
