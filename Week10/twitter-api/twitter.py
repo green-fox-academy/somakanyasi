@@ -91,14 +91,20 @@ class TweetAnalyzer():
 	'''
 	Functionality for analyzing and categorizying content from tweets.
 	'''
-	pass
-		
+	def tweets_to_data_frame(self, tweets):
+		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
+		return df
+
 
 if __name__ == "__main__":
 	
 	twitter_client = TwitterClient()
+	tweet_analyzer = TweetAnalyzer()
+
 	api = twitter_client.get_twitter_client_api()
 
 	tweets = api.user_timeline(screen_name="realDonaldTrump", count=20)
 
-	print(tweets)
+	df = tweet_analyzer.tweets_to_data_frame(tweets)
+
+	print(df.head)
