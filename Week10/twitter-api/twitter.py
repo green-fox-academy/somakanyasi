@@ -6,6 +6,20 @@ from tweepy import Stream
 
 import twitter_credentials
 
+# # # # TWITTER CLIENT # # # #
+class TwitterClient():
+
+	def __init__(self):
+		self.auth = TwitterAuthenticator().authenticate_twitter_app()
+		self.twitter_client = API(self.auth)
+
+	def get_user_timeline_tweets(self, number_of_tweets):
+		tweets = []
+		#Cursor is a class which allows us to get the user timeline tweets from the chosen user's timeline. If nothing is given there then it's gonna take the tweets from your timeline. The items part decides how many tweets we want.
+		for tweet in Cursor(self.twitter_client.user_timeline).items(number_of_tweets):
+			tweets.append(tweet)
+			return tweets
+
 # # # # TWITTER AUTHENTICATER # # # #
 class TwitterAuthenticator():
 
@@ -61,5 +75,5 @@ if __name__ == "__main__":
 	hash_tag_list = ['donald trump', 'barack obama']
 	fetched_tweets_filename = "tweets.json"
 
-	twitter_streamer = TwitterStreamer()
-	twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)
+	# twitter_streamer = TwitterStreamer()
+	# twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)
