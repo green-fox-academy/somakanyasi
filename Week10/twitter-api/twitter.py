@@ -19,7 +19,19 @@ class TwitterClient():
 		#Cursor is a class which allows us to get the user timeline tweets from the chosen user's timeline. If nothing is given there then it's gonna take the tweets from your timeline. The items part decides how many tweets we want.
 		for tweet in Cursor(self.twitter_client.user_timeline, id=self.twitter_user).items(number_of_tweets):
 			tweets.append(tweet)
-			return tweets
+		return tweets
+
+	def get_friend_list(self, number_of_friends):
+		list_of_friends = []
+		for friend in Cursor(self.twitter_client.friends, id=self.twitter_user).items(number_of_friends):
+			list_of_friends.append(friend)
+		return list_of_friends
+
+	def get_home_timeline_tweets(self, number_of_tweets):
+		home_timeline_tweets = []
+		for tweet in Cursor(self.twitter_client.home_timeline, id=self.twitter_user).items(number_of_tweets):
+			home_timeline_tweets.append(tweet)
+		return home_timeline_tweets
 
 # # # # TWITTER AUTHENTICATER # # # #
 class TwitterAuthenticator():
@@ -76,7 +88,7 @@ if __name__ == "__main__":
 	hash_tag_list = ['donald trump', 'barack obama']
 	fetched_tweets_filename = "tweets.json"
 
-	twitter_client = TwitterClient('pycon')
+	twitter_client = TwitterClient('realDonaldTrump')
 	print(twitter_client.get_user_timeline_tweets(1))
 
 	# twitter_streamer = TwitterStreamer()
