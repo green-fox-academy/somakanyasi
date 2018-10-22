@@ -3,6 +3,7 @@ from tweepy import Cursor
 from tweepy import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+from textblob import TextBlob
 
 import numpy as np
 import pandas as pd
