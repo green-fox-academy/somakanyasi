@@ -7,6 +7,8 @@ from tweepy import Stream
 import numpy as np
 import pandas as pd
 import twitter_credentials
+import matplotlib.pyplot as plt
+
 
 # # # # TWITTER CLIENT # # # #
 class TwitterClient():
@@ -92,7 +94,7 @@ class TweetAnalyzer():
 	Functionality for analyzing and categorizying content from tweets.
 	'''
 	def tweets_to_data_frame(self, tweets):
-		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
+		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['tweets'])
 
 		#creates the ['.....'] column to our dataframe and then fills it out with the proper values
 		df['id'] = np.array([tweet.id for tweet in tweets])
@@ -112,7 +114,7 @@ if __name__ == "__main__":
 
 	api = twitter_client.get_twitter_client_api()
 
-	tweets = api.user_timeline(screen_name="realDonaldTrump", count=20)
+	tweets = api.user_timeline(screen_name="realDonaldTrump", count=200)
 
 	#to check what kind of information we can get from the first tweet
 	# print(dir(tweets[0]))
@@ -121,4 +123,19 @@ if __name__ == "__main__":
 	# print(tweets[0].retweet_count)    
 
 	df = tweet_analyzer.tweets_to_data_frame(tweets)
-	print(df.head(10))
+	# print(df.head(10))
+
+	#Get average length over all tweets.
+	print(np.mean(df['length']))
+
+	#Get the number of likes for the most liked tweet.
+	print(np.max(df['likes']))
+
+	#Get the number of retweets for the most retweeted tweet.
+	print(np.max(df['retweets']))
+
+	#Time Series
+	time_likes = pd.Series(data = df['likes'].values, index = df['date'])
+	time_likes.plot(figsize = [16, 4], color = 'r')
+	plt.show()
+
