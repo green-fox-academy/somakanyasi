@@ -32,3 +32,4 @@ df = pandas.DataFrame(data_pairs, columns=['link', 'imagesource'])
 # print(df.head(5))
 
 print(df.groupby(['link', 'imagesource']).describe())
+
