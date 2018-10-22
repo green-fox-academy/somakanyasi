@@ -8,6 +8,7 @@ from textblob import TextBlob
 import numpy as np
 import pandas as pd
 import twitter_credentials
+import re
 import matplotlib.pyplot as plt
 
 
@@ -94,6 +95,19 @@ class TweetAnalyzer():
 	'''
 	Functionality for analyzing and categorizying content from tweets.
 	'''
+	def clean_tweet(self, tweet):
+		return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
+
+	def analyze_sentiment(self, tweet):
+		analysis = TextBlob(self.clean_tweet(tweet))
+		if analysis.sentiment.polarity > 0:
+			return 1
+		elif analysis.sentiment.polarity == 0:
+			return 0
+		else:
+			return -1
+		
+
 	def tweets_to_data_frame(self, tweets):
 		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['tweets'])
 
@@ -126,6 +140,11 @@ if __name__ == "__main__":
 	df = tweet_analyzer.tweets_to_data_frame(tweets)
 	# print(df.head(10))
 
+	#sentiment analysis printing
+	df['sentiment'] = np.array([tweet_analyzer.analyze_sentiment(tweet) for tweet in df['tweets']])
+	print(df.head(10))
+
+	'''
 	#Get average length over all tweets.
 	print(np.mean(df['length']))
 
@@ -148,4 +167,5 @@ if __name__ == "__main__":
 	time_retweets = pd.Series(data = df['retweets'].values, index = df['date'])
 	time_retweets.plot(figsize = [16, 4], label = 'retweets', legend=True)
 	plt.show()
+	'''
 
