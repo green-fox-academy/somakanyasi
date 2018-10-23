@@ -4,10 +4,18 @@
   </head>
   <body>
     <h2>Wikipedia Api Challange</h2>
-    <form action="">
+    <form action="http://127.0.0.1:5000" method="POST">
       <label for="search_bar">What you want to know about the world?</label>
       <input type="text" name="search_bar" id="search_bar"> <br>
       <button type="submit">Search</button>
     </form>
+    {% if response %}
+    <div id="search_result">
+      <h3>Here are some interesting articles:</h3> <br>
+      {% for index in link_list %}
+      <a href="{{index['link']}}" target="_blank">{{index['title']}}</a> <br>
+      {% endfor %}
+      {% endif %}
+    </div>
   </body>
 </html>
