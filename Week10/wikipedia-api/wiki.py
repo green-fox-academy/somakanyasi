@@ -19,8 +19,7 @@ def searching():
     links = response[3]
     link_list = []
     for index in range(len(titles)):
-        for index in range(len(links)):
-            link_list.append({"title": titles[index], "link": links[index]})
+        link_list.append({"title": titles[index], "link": links[index]})
     print(link_list)
     return render_template("index.html", response=response, link_list=link_list)
 
