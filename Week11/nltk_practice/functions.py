@@ -72,4 +72,10 @@ for entry in entries[39943:39951]:
 
 syllable = ['N', 'IH0', 'K', 'S']
 rhymes = [word for word, pron in entries if pron[-4:] == syllable]
-print(rhymes)
+# print(rhymes)
+
+def stress(pron):
+    return [char for phone in pron for char in phone if char.isdigit()]
+print([w for w, pron in entries if stress(pron) == ['0', '1', '0', '2', '0']])
+print([w for w, pron in entries if stress(pron) == ['0', '2', '0', '1', '0']])
+
