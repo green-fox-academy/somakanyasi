@@ -46,5 +46,19 @@ wordlist = nltk.corpus.words.words()
 words_generated = [w for w in wordlist if len(w) >= 6
                 and obligatory in w
                 and nltk.FreqDist(w) <= puzzle_letters]
-print(words_generated)
+# print(words_generated)
+
+
+# NAME CORPUS
+names = nltk.corpus.names
+male_names = names.words('male.txt')
+female_names = names.words('female.txt')
+unisex_names = [w for w in male_names if w in female_names]
+# print(unisex_names)
+
+cfd = nltk.ConditionalFreqDist(
+           (fileid, name[-1])
+           for fileid in names.fileids()
+           for name in names.words(fileid))
+print(cfd.plot())
 
