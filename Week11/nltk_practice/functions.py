@@ -3,6 +3,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import reuters
 
+
 # GIVES BACK THE PLURAL FORM OF AN ENGLISH WORD
 def plural(word):
     if word.endswith('y'):
@@ -17,6 +18,7 @@ def plural(word):
 # print(plural('woman'))
 # print(plural('fairy'))
 
+
 # EXAMINES A TEXT AND FILTERS OUT THE UNCOMMON OR MIS-SPELT WORDS
 def unusual_words(text):
     text_vocab = set(w.lower() for w in text if w.isalpha())
@@ -27,10 +29,22 @@ def unusual_words(text):
 # print(unusual_words(nltk.corpus.gutenberg.words('austen-sense.txt')))
 # print(unusual_words(nltk.corpus.nps_chat.words()))
 
+
 # GIVES BACK THE FRACTION OF THE STOPWORDS IN A TEXT
 def content_fraction(text):
     stopwords = nltk.corpus.stopwords.words('english')
     content = [w for w in text if w.lower() not in stopwords]
     return len(content) / len(text)
 
-print(content_fraction(nltk.corpus.reuters.words()))
+# print(content_fraction(nltk.corpus.reuters.words()))
+
+
+# WORD PUZZLE
+puzzle_letters = nltk.FreqDist('egivrvonl')
+obligatory = 'r'
+wordlist = nltk.corpus.words.words()
+words_generated = [w for w in wordlist if len(w) >= 6
+                and obligatory in w
+                and nltk.FreqDist(w) <= puzzle_letters]
+print(words_generated)
+
