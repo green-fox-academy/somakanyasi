@@ -60,5 +60,16 @@ cfd = nltk.ConditionalFreqDist(
            (fileid, name[-1])
            for fileid in names.fileids()
            for name in names.words(fileid))
-print(cfd.plot())
+# print(cfd.plot())
 
+
+# PRONOUNCING DICTIONARY
+entries = nltk.corpus.cmudict.entries()
+# print(len(entries))
+for entry in entries[39943:39951]:
+    # print(entry)
+    pass
+
+syllable = ['N', 'IH0', 'K', 'S']
+rhymes = [word for word, pron in entries if pron[-4:] == syllable]
+print(rhymes)
