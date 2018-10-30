@@ -89,10 +89,16 @@ for template in cfd.conditions():
     if len(cfd[template]) > 10:
         words = cfd[template].keys()
         wordlist = ' '.join(words)
-        print(template, wordlist[:70] + "...")
+        # print(template, wordlist[:70] + "...")
 
 # SWADESH WORDLIST (COMPARATIVE)
-fr2en = swadesh.entries(['fr', 'en'])
+fr2en = swadesh.entries(['fr', 'en'])    # French-English
+de2en = swadesh.entries(['de', 'en'])    # German-English
+es2en = swadesh.entries(['es', 'en'])    # Spanish-English
 translate = dict(fr2en)
+translate.update(dict(de2en))
+translate.update(dict(es2en))
 print(translate['chien'])
 print(translate['jeter'])
+print(translate['Hund'])
+print(translate['perro'])
