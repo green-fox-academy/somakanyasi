@@ -2,6 +2,7 @@ import nltk
 
 from nltk.corpus import stopwords
 from nltk.corpus import reuters
+from nltk.corpus import swadesh
 
 
 # GIVES BACK THE PLURAL FORM OF AN ENGLISH WORD
@@ -76,6 +77,22 @@ rhymes = [word for word, pron in entries if pron[-4:] == syllable]
 
 def stress(pron):
     return [char for phone in pron for char in phone if char.isdigit()]
-print([w for w, pron in entries if stress(pron) == ['0', '1', '0', '2', '0']])
-print([w for w, pron in entries if stress(pron) == ['0', '2', '0', '1', '0']])
+# print([w for w, pron in entries if stress(pron) == ['0', '1', '0', '2', '0']])
+# print([w for w, pron in entries if stress(pron) == ['0', '2', '0', '1', '0']])
 
+p3 = [(pron[0]+'-'+pron[2], word)
+        for (word, pron) in entries
+        if pron[0] == 'P' and len(pron) == 3]
+
+cfd = nltk.ConditionalFreqDist(p3)
+for template in cfd.conditions():
+    if len(cfd[template]) > 10:
+        words = cfd[template].keys()
+        wordlist = ' '.join(words)
+        print(template, wordlist[:70] + "...")
+
+# SWADESH WORDLIST (COMPARATIVE)
+fr2en = swadesh.entries(['fr', 'en'])
+translate = dict(fr2en)
+print(translate['chien'])
+print(translate['jeter'])
