@@ -3,6 +3,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import reuters
 from nltk.corpus import swadesh
+from nltk.corpus import wordnet as wn
 
 
 # GIVES BACK THE PLURAL FORM OF AN ENGLISH WORD
@@ -105,6 +106,18 @@ translate.update(dict(es2en))
 
 languages = ['en', 'de', 'nl', 'es', 'fr', 'pt', 'la']
 for i in [139, 140, 141, 142]:
-    print(swadesh.entries(languages)[i])
+    # print(swadesh.entries(languages)[i])
+    pass
+
+
+# WORD NET
+# print(wn.synsets('motorcar'))
+# print(wn.synset('car.n.01').lemma_names())
+# print(wn.synset('car.n.01').definition())
+# print(wn.synset('car.n.01').examples())
+# print(wn.synset('car.n.01').lemmas())
+
+for synset in wn.synsets('car'):
+    print(synset.lemma_names())
 
 
