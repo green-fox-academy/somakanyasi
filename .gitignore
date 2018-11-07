@@ -77,3 +77,6 @@ typings/
 
 # Gitignore
 .gitignore
+
+# twitter Api Key
+twitter_credentials.py

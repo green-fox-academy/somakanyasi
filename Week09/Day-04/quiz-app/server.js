@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/manage', (req, res) => {
+  res.sendFile(path.join(__dirname, '/assets/questions.html'))
+});
+
 const randomNumGen = () => {
   return Math.floor(Math.random() * 9) + 1;
 }
@@ -126,7 +130,7 @@ app.post('/questions', (req, res) => {
           res.status(500).send('Database error');
           return;
         }
-        res.status(200).redirect('/questions');
+        res.status(200).redirect('/manage');
         })
     });
   });

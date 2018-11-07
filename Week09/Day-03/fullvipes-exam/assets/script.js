@@ -16,6 +16,7 @@ window.onload = () => {
       },
       body: JSON.stringify({matrix: inputMatrix.value})
     }).then(response => response.json().then(respBody => {
+      console.log(respBody)
       result.textContent = respBody.status;
       result.style.color = "red";
     }));
