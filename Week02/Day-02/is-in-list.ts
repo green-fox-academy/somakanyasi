@@ -16,3 +16,14 @@ function elementFinder(input: number []){
     }
 }
 elementFinder(listOfNumbers);
+
+function newChecker(input: number[]) {
+    let numbersToCheck: number [] = [4, 8, 12, 16]
+    if (numbersToCheck.every(e => input.indexOf(e) > -1)) {
+        return true
+    } else {
+        return false
+    }
+}
+
+newChecker(listOfNumbers)

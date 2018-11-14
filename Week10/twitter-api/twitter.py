@@ -129,20 +129,21 @@ if __name__ == "__main__":
 
 	api = twitter_client.get_twitter_client_api()
 
-	tweets = api.user_timeline(screen_name="realDonaldTrump", count=200)
+	tweets = api.user_timeline(screen_name="realDonaldTrump", count=20)
 
 	#to check what kind of information we can get from the first tweet
 	# print(dir(tweets[0]))
 
 	#gives back how many times this particular tweet has been retweeted
-	# print(tweets[0].retweet_count)    
+	print(tweets[0].retweet_count)    
 
 	df = tweet_analyzer.tweets_to_data_frame(tweets)
 	# print(df.head(10))
+	print(tweets[0].text)
 
 	#sentiment analysis printing
 	df['sentiment'] = np.array([tweet_analyzer.analyze_sentiment(tweet) for tweet in df['tweets']])
-	print(df.head(10))
+	# print(df.head(10))
 
 	'''
 	#Get average length over all tweets.
@@ -162,10 +163,10 @@ if __name__ == "__main__":
 	# time_retweets.plot(figsize = [16, 4], color = 'g')
 	# plt.show()
 
-	time_likes = pd.Series(data = df['likes'].values, index = df['date'])
-	time_likes.plot(figsize = [16, 4], label = 'likes', legend=True)
-	time_retweets = pd.Series(data = df['retweets'].values, index = df['date'])
-	time_retweets.plot(figsize = [16, 4], label = 'retweets', legend=True)
-	plt.show()
+	# time_likes = pd.Series(data = df['likes'].values, index = df['date'])
+	# time_likes.plot(figsize = [16, 4], label = 'likes', legend=True)
+	# time_retweets = pd.Series(data = df['retweets'].values, index = df['date'])
+	# time_retweets.plot(figsize = [16, 4], label = 'retweets', legend=True)
+	# plt.show()
 	
 

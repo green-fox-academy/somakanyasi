@@ -36,3 +36,6 @@ function sumOfAges (list: any[]){
 }
 
 console.log(sumOfAges(students));
+
+
+

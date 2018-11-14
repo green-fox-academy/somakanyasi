@@ -16,23 +16,30 @@ const students: any[] = [
 //  - how many candies they have on average
 
 
-function studentFilter(list: any[]) {
-    list.filter((element) => {
-        if (element['candies'] > 4) {
-            console.log(element['name']);
-        }
-    })
-}
+// function studentFilter(list: any[]) {
+//     list.filter((element) => {
+//         if (element['candies'] > 4) {
+//             console.log(element['name']);
+//         }
+//     })
+// }
 
-studentFilter(students);
+// studentFilter(students);
+
+let newList: any [] = students.filter((element) => {return element["candies"] > 4});
+console.log(newList);
+
+newList.forEach(elem => {
+    console.log(elem.name)
+});
 
 // Average candies
 
-function averageCandies(input: object []) {
-    let averageCandies: number = 0;
-    for (let j = 0; j < input.length; j++) {
-        averageCandies = averageCandies + input[j]['candies'];
-    }
-    return averageCandies / input.length;
-}
-console.log(averageCandies(students));
+// function averageCandies(input: object []) {
+//     let averageCandies: number = 0;
+//     for (let j = 0; j < input.length; j++) {
+//         averageCandies = averageCandies + input[j]['candies'];
+//     }
+//     return averageCandies / input.length;
+// }
+// console.log(averageCandies(students));

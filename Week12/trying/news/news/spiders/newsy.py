@@ -18,24 +18,19 @@ class ClockChangeSpiderTest(scrapy.Spider):
 
     def parse_article(self, response):
         url = response.url
-        print('                 ++++++++++++++++++OOOOOOOOOOOOOOOOOOOOOOOOOOO+++++++++++++++++++')
-        print(      'title:', response.css('h1.post-title span::text').extract_first())
-        # print('                 ++++++++++++++++++OOOOOOOOOOOOOOOOOOOOOOOOOOO+++++++++++++++++++')
         text_content = response.css('div.post-body p::text').extract()
-        print(      'text:', "".join([par for par in text_content]))
-        # print('++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-         # print(article.css('span.fb-like-count span::text').extract_first())
+        date = response.css('div.author-content p::text').extract_first()
+        print('                 ++++++++++++++++++OOOOOOOOOOOOOOOOOOOOOOOOOOO+++++++++++++++++++')
+        print('     title:', response.css('h1.post-title span::text').extract_first())
+        print('     text:', "".join([par for par in text_content]))
+        print('     date:', response.css('div.author-content p::text').extract_first())
+        print('     comments', response.xpath('//span[@class=" _50f7"]/text()').extract_first())
+        # print(article.css('span.fb-like-count span::text').extract_first())
         # print(article.css('div.author-content p::text').extract_first(),)
-        # print(      'comments', response.xpath('//span[@class=" _50f7"]/text()').extract_first())
-        print(      'date:', response.css('div.author-content p::text').extract_first())
-        # if article.css('div.author-content p::text').extract_first() is not None:
-        #     date = article.css('div.author-content p::text').extract_first()
-        # else:
-        #     date = None
         
         # yield {
         #     "title": article.css('h1.post-title span::text').extract_first(),
-        #     "date": date,
+        #     "date": date if date is not None else None,
         #     "url": url,
         #     "text": article.css('div.post-body p::text').extract(),
         #     "comments": article.css('span. _50f7::text').extract_first(),
