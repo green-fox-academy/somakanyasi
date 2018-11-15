@@ -21,11 +21,14 @@ import os
 #             beer_names.append(title)
 #         print(beer_names)
 
-os.environ['webdriver.chrome.driver'] = '/Users/somakanyasi/Downloads/chromedriver'
+# os.environ['webdriver.chrome.driver'] = '/Users/somakanyasi/Downloads/chromedriver'
 
-driver = webdriver.Chrome()
-driver.get('http://www.hopfanatic.com/soreink/')
-# assert "Söreink | Hopfanatic" in driver.title
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+DRIVER_BIN = os.path.join(PROJECT_ROOT, "/Users/somakanyasi/Downloads/geckodriver")
+
+driver = webdriver.Firefox(executable_path = DRIVER_BIN)
+driver.get('http://www.nemzetisport.hu')
+# assert "Google" in driver.title
 
 driver.close()
 
