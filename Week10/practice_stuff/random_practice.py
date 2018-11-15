@@ -42,9 +42,11 @@ def filterVowels(alphabet):
 
 filteredVowels = filter(filterVowels, alphabets)
 
-print("The filtered vowels are:")
-for letter in filteredVowels:
-    print(letter)
+print(filteredVowels)
+
+# print("The filtered vowels are:")
+# for letter in filteredVowels:
+#     print(letter)
 
 #how to sort a dictionary by value
 
