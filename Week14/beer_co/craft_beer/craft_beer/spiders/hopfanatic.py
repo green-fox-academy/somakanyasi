@@ -27,10 +27,10 @@ import sys
 
 # os.environ['webdriver.gecko.driver'] = '/Users/somakanyasi/Downloads/geckodriver'
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-DRIVER_BIN = os.path.join(PROJECT_ROOT, "/Users/somakanyasi/Downloads/geckodriver")
+# PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+# DRIVER_BIN = os.path.join(PROJECT_ROOT, "/Users/somakanyasi/Downloads/geckodriver")
 
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 driver.get('http://www.hopfanatic.com/soreink/')
 assert "Söreink | Hopfanatic" in driver.title
 
