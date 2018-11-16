@@ -34,5 +34,46 @@ driver = webdriver.Chrome()
 driver.get('http://www.hopfanatic.com/soreink/')
 assert "Söreink | Hopfanatic" in driver.title
 
+beer_names = []
+beer_types = []
+datas = []
+descriptions = []
+beers = []
+
+
+for i in range(1,10):
+    beer_names.append(driver.find_elements_by_xpath("//*[@id='text-111-"+ str(i) +"-1-2']/h1/strong"))
+    beer_types.append(driver.find_elements_by_xpath("//*[@id='text-111-"+ str(i) +"-1-3']/h3"))
+    descriptions.append(driver.find_elements_by_xpath("//*[@id='text-111-"+ str(i) +"-1-5']/p"))
+    datas.append(driver.find_elements_by_xpath("//*[@id='text-111-"+ str(i) +"-1-7']/h4"))
+    
+
+print(len(beer_names))
+print(len(beer_types))
+print(len(datas))
+# print(beer_names[0].text)
+
+for element in beer_names:
+    if element:
+        print(element[0].text)
+
+for i in range(0, 9):
+    item = {}
+    if beer_names[i]:
+        item['beer_name'] = beer_names[i][0].text
+    if beer_types[i]:
+        item['beer_type'] = beer_types[i][0].text
+    if datas[i]:
+        item['bitterness'] = datas[i][0].text.replace(' IBU', '')
+        item['color'] = datas[i][1].text.replace(' EBC', '')
+        item['alcohol_vol'] = datas[i][2].text.replace('ALK.: ', '').replace(' V/V', '')
+    if descriptions[i]:
+        item['description'] = descriptions[i][0].text
+        item['brewery'] = "Hopfanatic"
+        item['vol'] = '0,33'
+    beers.append(item)
+
+print(beers)
+
 driver.close()
 
