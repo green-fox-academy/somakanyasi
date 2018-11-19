@@ -18,14 +18,20 @@ class MadScientistCrawler(scrapy.Spider):
         beer_name = response.css('h1::text').extract_first().strip()
         lis = response.css('div.product__data ul li::text').extract()
         description = ''.join(response.css('div.product__content p::text').extract())
+        if lis is not None and len(lis) > 0:
+            alcohol_vol = lis[1].strip()
+            beer_type = lis[4].strip()
+            print(alcohol_vol)
+        else:
+            alcohol_vol = ""
+            beer_type = ""
         yield {
             "beer_name": beer_name,
             "brewery": brewery,
-            "alcohol_vol": lis[1].strip(),
-            "beer_type": lis[4].strip(),
+            "alcohol_vol": alcohol_vol,
+            "beer_type": beer_type,
             "description": description,
         }
-        # # print(lis)
         # beer_type
         # for item in lis:
             

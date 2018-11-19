@@ -1,6 +1,7 @@
 # import scrapy
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import pymongo
 # import os
 # import sys
 
@@ -25,6 +26,13 @@ from selenium.webdriver.common.keys import Keys
 
 # print(sys.path)
 
+MONGO_URI = 'mongodb://ec2-35-158-191-40.eu-central-1.compute.amazonaws.com:27017/'
+MONGO_DATABASE = 'soma_beer_test'
+
+client = pymongo.MongoClient(MONGO_URI)
+
+database = client[MONGO_DATABASE]
+
 # os.environ['webdriver.gecko.driver'] = '/Users/somakanyasi/Downloads/geckodriver'
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -38,8 +46,6 @@ beer_names = []
 beer_types = []
 datas = []
 descriptions = []
-beers = []
-
 
 for i in range(1,10):
     beer_names.append(driver.find_elements_by_xpath("//*[@id='text-111-"+ str(i) +"-1-2']/h1/strong"))
@@ -71,9 +77,8 @@ for i in range(0, 9):
         item['description'] = descriptions[i][0].text
         item['brewery'] = "Hopfanatic"
         item['vol'] = '0,33'
-    beers.append(item)
+    database["scrapy_items"].insert_one(item)
 
-print(beers)
-
+client.close()
 driver.close()
 

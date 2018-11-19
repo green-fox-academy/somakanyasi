@@ -17,7 +17,6 @@ NEWSPIDER_MODULE = 'craft_beer.spiders'
 MONGO_URI = 'mongodb://ec2-35-158-191-40.eu-central-1.compute.amazonaws.com:27017/'
 MONGO_DATABASE = 'soma_beer_test'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craft_beer (+http://www.yourdomain.com)'
 
@@ -56,9 +55,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+# DOWNLOADER_MIDDLEWARES = {
 #    'craft_beer.middlewares.CraftBeerDownloaderMiddleware': 543,
-#}
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
