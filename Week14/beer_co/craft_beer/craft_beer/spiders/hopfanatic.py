@@ -1,8 +1,8 @@
-import scrapy
+# import scrapy
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import os
-import sys
+# import os
+# import sys
 
 
 # class HopFanaticCrawler(scrapy.Spider):

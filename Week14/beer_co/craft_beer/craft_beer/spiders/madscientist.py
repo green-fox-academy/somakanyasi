@@ -20,7 +20,7 @@ class MadScientistCrawler(scrapy.Spider):
         description = ''.join(response.css('div.product__content p::text').extract())
         yield {
             "beer_name": beer_name,
-            "brewery": "Mad Scientist",
+            "brewery": brewery,
             "alcohol_vol": lis[1].strip(),
             "beer_type": lis[4].strip(),
             "description": description,
