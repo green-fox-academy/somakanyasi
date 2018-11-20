@@ -27,7 +27,7 @@ import pymongo
 # print(sys.path)
 
 MONGO_URI = 'mongodb://ec2-35-158-191-40.eu-central-1.compute.amazonaws.com:27017/'
-MONGO_DATABASE = 'soma_beer_test'
+MONGO_DATABASE = 'beer'
 
 client = pymongo.MongoClient(MONGO_URI)
 
