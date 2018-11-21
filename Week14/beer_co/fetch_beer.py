@@ -25,6 +25,7 @@ for char in char_to_replace:
     df["bitterness"] = df["bitterness"].str.replace(char, '')
 
 df["bitterness"] = df["bitterness"].str.replace('O', '0')
+df["bitterness"] = df["bitterness"].str.replace(',', '.')
 
 # Drop the duplicates
 df.drop_duplicates(keep='first', inplace=True)
@@ -35,26 +36,19 @@ df = df[df["beer_name"] != 'NaN']
 df = df[df["beer_name"] != 'We are Mad Scientist!']
 df = df[df["beer_name"] != 'Sörpárlat']
 
-for row in df["beer_name"]:
-    print(row)
-#     if row is 'nan':
-#         print(row)
-# df.drop[df.beer_name != 'Sörpárlat']
+# Filtering the beer types:
+
 
 # Deciding if a beer is bitter or not
-    # calculating from the IBU number:
-# for value in df["bitterness"]:
-#     # print(value)
-#     if math.isnan(int(value)) is False:
-#         print(value)
-        # if float(value) > 35:
-        #     print(value)
-    #     print(value)
-    # if value is not None and int(value) > 35:
-    #     df["bitter?"] = 1
-    # elif value is not None and int(value) < 35:
-    #     df["bitter?"] = 0
+# calculating from the IBU number:
+for row in df["bitterness"]:
+    if row is not 'NaN' and row is not '' and row is not math.nan:
+        if float(row) > 35:
+            df["bitter?"] = 1
+        elif float(row) < 35:
+            df["bitter?"] = 0
 
+print(df["bitter?"])
 
-df.to_csv("dump.csv")
+# df.to_csv("dump.csv")
 
