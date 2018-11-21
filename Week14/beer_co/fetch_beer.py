@@ -19,6 +19,12 @@ def dump_into_df(db_name):
 
 df = dump_into_df("beer")
 
+# Drop the useless rows
+df = df.fillna('NaN')
+df = df[df["beer_name"] != 'NaN']
+df = df[df["beer_name"] != 'We are Mad Scientist!']
+df = df[df["beer_name"] != 'Sörpárlat']
+
 char_to_replace = ['I', 'B', 'U', ' ', ':']
 
 for char in char_to_replace:
@@ -26,29 +32,33 @@ for char in char_to_replace:
 
 df["bitterness"] = df["bitterness"].str.replace('O', '0')
 df["bitterness"] = df["bitterness"].str.replace(',', '.')
+df["bitterness"] = pd.to_numeric(df["bitterness"], errors='coerce')
 
 # Drop the duplicates
 df.drop_duplicates(keep='first', inplace=True)
 
-# Drop the useless rows
-df = df.fillna('NaN')
-df = df[df["beer_name"] != 'NaN']
-df = df[df["beer_name"] != 'We are Mad Scientist!']
-df = df[df["beer_name"] != 'Sörpárlat']
-
-# Filtering the beer types:
-
 
 # Deciding if a beer is bitter or not
+df["bitterness_index"] = 0
+print(df.dtypes)
 # calculating from the IBU number:
-for row in df["bitterness"]:
-    if row is not 'NaN' and row is not '' and row is not math.nan:
-        if float(row) > 35:
-            df["bitter?"] = 1
-        elif float(row) < 35:
-            df["bitter?"] = 0
+# if df["bitterness"] is not 'NaN' and df["bitterness"] is not '' and df["bitterness"] is not math.nan and float(df["bitterness"]) > 35:
+#         df["bitterness_index"] = 1
 
-print(df["bitter?"])
+for index, row in enumerate(df["bitterness"]):
+    if row is not 'NaN' and row is not '' and row is not math.nan and row > 35:
+        df.loc[df.index[index], "bitterness_index"] = 1
+        print(df.loc[df.index[index], "bitterness_index"])
+
+# calculating from the name of the beer:
+# for beer in df["beer_name"]:
+#     if 'ipa' in beer.lower():
+#         df["bitterness_index"] = 1
+
+# calculating from the description
+
+
+# print(df["bitter?"])
 
 # df.to_csv("dump.csv")
 
