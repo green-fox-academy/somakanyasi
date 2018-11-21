@@ -42,18 +42,15 @@ df.drop_duplicates(keep='first', inplace=True)
 df["bitterness_index"] = 0
 print(df.dtypes)
 # calculating from the IBU number:
-# if df["bitterness"] is not 'NaN' and df["bitterness"] is not '' and df["bitterness"] is not math.nan and float(df["bitterness"]) > 35:
-#         df["bitterness_index"] = 1
-
 for index, row in enumerate(df["bitterness"]):
     if row is not 'NaN' and row is not '' and row is not math.nan and row > 35:
         df.loc[df.index[index], "bitterness_index"] = 1
         print(df.loc[df.index[index], "bitterness_index"])
 
 # calculating from the name of the beer:
-# for beer in df["beer_name"]:
-#     if 'ipa' in beer.lower():
-#         df["bitterness_index"] = 1
+for index, beer in enumerate(df["beer_name"]):
+    if 'ipa' in beer.lower():
+        df.loc[df.index[index], "bitterness_index"] = 1
 
 # calculating from the description
 
