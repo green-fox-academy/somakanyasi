@@ -38,7 +38,7 @@ df["bitterness"] = pd.to_numeric(df["bitterness"], errors='coerce')
 df.drop_duplicates(keep='first', inplace=True)
 
 
-# Deciding if a beer is bitter or not
+# DECIDING IF A BEER IS BITTER OR NOT:
 df["bitterness_index"] = 0
 print(df.dtypes)
 # calculating from the IBU number:
@@ -55,7 +55,9 @@ for index, beer in enumerate(df["beer_name"]):
 # calculating from the description
 
 
-# print(df["bitter?"])
+# DECIDING THE TYPE OF THE BEER:
+df["beer_type_new"] = ''
+
 
 # df.to_csv("dump.csv")
 
