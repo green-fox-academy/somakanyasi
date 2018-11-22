@@ -38,6 +38,43 @@ df["bitterness"] = pd.to_numeric(df["bitterness"], errors='coerce')
 df.drop_duplicates(keep='first', inplace=True)
 
 
+# DECIDING THE TYPE OF THE BEER:
+df["beer_type_new"] = ''
+beer_types = ['IPA', 'APA', 'Ale', 'Pale Ale', 'Blonde Ale', 'Amber Ale', 'Stout', 'Porter', 'Lager', 'Wheat', 'Pilsner', 'Saison']
+ipa_names = ['ipa', 'indian pale ale']
+apa_names = ['apa', 'american pale ale']
+wheat_names = ['buza', 'búza', 'weizen', 'wheat', 'weisse', 'witbier']
+# getting the beer types from their names
+for index, name in enumerate(df["beer_name"]):
+    for btype in beer_types:
+        if btype.lower() in name.lower():
+            df.loc[df.index[index], "beer_type_new"] = btype
+    for itype in ipa_names:
+        if itype in name.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'IPA'
+    for atype in apa_names:
+        if atype in name.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'APA'
+    for wtype in wheat_names:
+        if wtype in name.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'Wheat'
+
+# getting the beer types from their description
+for index, descrip in enumerate(df["description"]):
+    for btype in beer_types:
+        if btype.lower() in descrip.lower():
+            df.loc[df.index[index], "beer_type_new"] = btype
+    for itype in ipa_names:
+        if itype in descrip.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'IPA'
+    for atype in apa_names:
+        if atype in descrip.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'APA'
+    for wtype in wheat_names:
+        if wtype in descrip.lower():
+            df.loc[df.index[index], "beer_type_new"] = 'Wheat'
+
+
 # DECIDING IF A BEER IS BITTER OR NOT:
 df["bitterness_index"] = 0
 # print(df.dtypes)
@@ -54,23 +91,8 @@ for index, beer in enumerate(df["beer_name"]):
 
 # calculating from the description
 
-
-# DECIDING THE TYPE OF THE BEER:
-df["beer_type_new"] = ''
-beer_types = ['IPA', 'APA', 'Ale', 'Pale Ale', 'Blonde Ale', 'Amber Ale', 'Stout', 'Porter', 'Wheat', 'Pilsner', 'Saison']
-# getting the beer types from their names
-for index, name in enumerate(df["beer_name"]):
-    for btype in beer_types:
-        if btype.lower() in name.lower():
-            df.loc[df.index[index], "beer_type_new"] = btype
-
-# getting the beer types from their description
-for index, descrip in enumerate(df["description"]):
-    for btype in beer_types:
-        if btype.lower() in descrip.lower():
-            df.loc[df.index[index], "beer_type_new"] = btype
-
 print(df["beer_type_new"])
+print(df.head(10))
 
 # df.to_csv("dump.csv")
 
