@@ -40,12 +40,12 @@ df.drop_duplicates(keep='first', inplace=True)
 
 # DECIDING IF A BEER IS BITTER OR NOT:
 df["bitterness_index"] = 0
-print(df.dtypes)
+# print(df.dtypes)
 # calculating from the IBU number:
 for index, row in enumerate(df["bitterness"]):
     if row is not 'NaN' and row is not '' and row is not math.nan and row > 35:
         df.loc[df.index[index], "bitterness_index"] = 1
-        print(df.loc[df.index[index], "bitterness_index"])
+        # print(df.loc[df.index[index], "bitterness_index"])
 
 # calculating from the name of the beer:
 for index, beer in enumerate(df["beer_name"]):
@@ -57,7 +57,20 @@ for index, beer in enumerate(df["beer_name"]):
 
 # DECIDING THE TYPE OF THE BEER:
 df["beer_type_new"] = ''
+beer_types = ['IPA', 'APA', 'Ale', 'Pale Ale', 'Blonde Ale', 'Amber Ale', 'Stout', 'Porter', 'Wheat', 'Pilsner', 'Saison']
+# getting the beer types from their names
+for index, name in enumerate(df["beer_name"]):
+    for btype in beer_types:
+        if btype.lower() in name.lower():
+            df.loc[df.index[index], "beer_type_new"] = btype
 
+# getting the beer types from their description
+for index, descrip in enumerate(df["description"]):
+    for btype in beer_types:
+        if btype.lower() in descrip.lower():
+            df.loc[df.index[index], "beer_type_new"] = btype
+
+print(df["beer_type_new"])
 
 # df.to_csv("dump.csv")
 
