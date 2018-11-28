@@ -19,3 +19,10 @@ print(m, b)
 
 regression_line = [(m * x) + b for x in xs]
 
+predict_x = 8
+predict_y = m * predict_x + b
+
+plt.scatter(xs, ys)
+plt.scatter(predict_x, predict_y, color='g')
+plt.plot(xs, regression_line)
+plt.show()
