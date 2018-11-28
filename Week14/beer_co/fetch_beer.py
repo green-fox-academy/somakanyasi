@@ -106,8 +106,7 @@ for index, beer in enumerate(df["beer_type_new"]):
 
 # calculating from the description
 
-
-print(df.head(10))
+# print(df.head(10))
 
 # df.to_csv("dump.csv")
 
