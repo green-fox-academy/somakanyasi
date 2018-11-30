@@ -21,16 +21,17 @@ forecast_col = 'Adj. Close'
 df.fillna(-99999, inplace=True)
 
 # tells us how many days ahead we want to predict
-forecast_out = int(math.ceil(0.01*len(df)))
+forecast_out = int(math.ceil(0.01*len(df)))    # this is 1% of the data
 print(forecast_out)
 
 df['label'] = df[forecast_col].shift(-forecast_out)
 
 X = np.array(df.drop(['label'], 1))
 X = preprocessing.scale(X)
-X = X[:-forecast_out]
 # X_lately is what we're going to predict
 X_lately = X[-forecast_out:]
+# we make X = the 99% of X originally
+X = X[:-forecast_out]
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
