@@ -8,6 +8,8 @@ from sklearn import preprocessing, cross_validation, neighbors
 import matplotlib.pyplot as plt
 from matplotlib import style
 import random
+from sklearn.neighbors import NearestNeighbors
+
 
 filename = 'cleanbeer.csv'
 df = pd.read_csv(filename)
