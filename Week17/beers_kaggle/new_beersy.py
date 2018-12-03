@@ -83,3 +83,28 @@ example_measures = np.array(
 
 prediction = clf.predict(example_measures)
 print(prediction)
+
+nbrs = NearestNeighbors(n_neighbors=3, algorithm='ball_tree').fit(X)
+
+
+def whoistheneighbour(i):
+    coordinates = [[df_simplified.iloc[i]['abv'],
+                    df_simplified.iloc[i]['ibu'], df_simplified.iloc[i]['srm']]]
+    distances, indices = nbrs.kneighbors(coordinates)
+    # return indices
+    print('********origi********', df_simplified.iloc[i])
+    for item in indices[0]:
+        print('********neighbour************')
+        print(df_simplified.iloc[item])
+
+
+whoistheneighbour(162)
+whoistheneighbour(723)
+
+
+# print(indices[0:5], distances[0:5])
+# print(df_simplified[0:1])
+# print(df_simplified.iloc[0])
+# print(df_simplified.iloc[151])
+# print(df_simplified.iloc[148])
+
