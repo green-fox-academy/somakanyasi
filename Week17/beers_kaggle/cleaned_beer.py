@@ -63,11 +63,6 @@ df_simplified = df[['abv', 'ibu', 'srm', 'style_new']]
 
 # print(df_simplified.head(30))
 
-# X aka features
-X = np.array((df_simplified.drop(['style_new'], 1)))
-# y for label
-y = np.array(df_simplified['style_new'])
-
 X_norm = df[['abv']].values.astype(float)
 Y_norm = df[['ibu']].values.astype(float)
 Z_norm = df[['srm']].values.astype(float)
@@ -79,6 +74,11 @@ df['ibu_norm'] = min_max_scaler.fit_transform(Y_norm)
 df['srm_norm'] = min_max_scaler.fit_transform(Z_norm)
 
 print(df['abv_norm'])
+
+# X aka features
+X = np.array((df_simplified.drop(['style_new', 'abv', 'ibu', 'srm'], 1)))
+# y for label
+y = np.array(df_simplified['style_new'])
 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(
     X, y, test_size=0.2)
