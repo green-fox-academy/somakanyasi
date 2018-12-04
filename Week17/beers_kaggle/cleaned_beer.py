@@ -63,17 +63,17 @@ df_simplified = df[['abv', 'ibu', 'srm', 'style_new']]
 
 # print(df_simplified.head(30))
 
-X_norm = df[['abv']].values.astype(float)
-Y_norm = df[['ibu']].values.astype(float)
-Z_norm = df[['srm']].values.astype(float)
+X_norm = df_simplified[['abv']].values.astype(float)
+Y_norm = df_simplified[['ibu']].values.astype(float)
+Z_norm = df_simplified[['srm']].values.astype(float)
 
 min_max_scaler = preprocessing.MinMaxScaler()
 
-df['abv_norm'] = min_max_scaler.fit_transform(X_norm)
-df['ibu_norm'] = min_max_scaler.fit_transform(Y_norm)
-df['srm_norm'] = min_max_scaler.fit_transform(Z_norm)
+df_simplified['abv_norm'] = min_max_scaler.fit_transform(X_norm)
+df_simplified['ibu_norm'] = min_max_scaler.fit_transform(Y_norm)
+df_simplified['srm_norm'] = min_max_scaler.fit_transform(Z_norm)
 
-print(df['abv_norm'])
+# print(df_simplified['abv_norm'])
 
 # X aka features
 X = np.array((df_simplified.drop(['style_new', 'abv', 'ibu', 'srm'], 1)))
@@ -92,7 +92,7 @@ print(accuracy)
 
 
 example_measures = np.array(
-    [[0.072, 60.0, 5.0], [0.052, 30.0, 5.0], [0.042, 45.0, 65.0]])
+    [[0.072, 0.1, 0.1], [0.052, 30.0, 5.0], [0.042, 45.0, 65.0]])
 
 prediction = clf.predict(example_measures)
 print(prediction)
@@ -105,10 +105,11 @@ def whoistheneighbour(i):
                     df_simplified.iloc[i]['ibu'], df_simplified.iloc[i]['srm']]]
     distances, indices = nbrs.kneighbors(coordinates)
     # return indices
-    print('********origi********', df_simplified.iloc[i])
+    # print('********origi********', df_simplified.iloc[i])
     for item in indices[0]:
-        print('********neighbour************')
-        print(df_simplified.iloc[item])
+        # print('********neighbour************')
+        # print(df_simplified.iloc[item])
+        pass
 
 
 whoistheneighbour(162)
