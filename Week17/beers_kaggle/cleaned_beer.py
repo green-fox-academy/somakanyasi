@@ -74,10 +74,11 @@ Z_norm = df[['srm']].values.astype(float)
 
 min_max_scaler = preprocessing.MinMaxScaler()
 
-X_scaled = min_max_scaler.fit_transform(X_norm)
-Y_scaled = min_max_scaler.fit_transform(Y_norm)
-Z_scaled = min_max_scaler.fit_transform(Z_norm)
+df['abv_norm'] = min_max_scaler.fit_transform(X_norm)
+df['ibu_norm'] = min_max_scaler.fit_transform(Y_norm)
+df['srm_norm'] = min_max_scaler.fit_transform(Z_norm)
 
+print(df['abv_norm'])
 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(
     X, y, test_size=0.2)
