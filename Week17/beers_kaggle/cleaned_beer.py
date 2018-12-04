@@ -105,11 +105,11 @@ def whoistheneighbour(i):
                     df_simplified.iloc[i]['ibu'], df_simplified.iloc[i]['srm']]]
     distances, indices = nbrs.kneighbors(coordinates)
     # return indices
-    # print('********origi********', df_simplified.iloc[i])
+    print('********origi********', df_simplified.iloc[i])
     for item in indices[0]:
-        # print('********neighbour************')
-        # print(df_simplified.iloc[item])
-        pass
+        print('********neighbour************')
+        print(df_simplified.iloc[item])
+        
 
 
 whoistheneighbour(162)
