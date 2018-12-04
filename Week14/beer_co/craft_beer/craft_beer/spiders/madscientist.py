@@ -9,7 +9,8 @@ class MadScientistCrawler(scrapy.Spider):
 
     def parse(self, response):
         for link in response.css('div.col-xs-12'):
-            next_page = link.css('a.card--product::attr(href)').extract_first()
+            next_page = link.css('a.card--product::
+            attr(href)').extract_first()
             yield response.follow(next_page, self.parse_beer)
 
     def parse_beer(self, response):
