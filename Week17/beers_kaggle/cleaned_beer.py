@@ -67,11 +67,18 @@ X_norm = df_simplified[['abv']].values.astype(float)
 Y_norm = df_simplified[['ibu']].values.astype(float)
 Z_norm = df_simplified[['srm']].values.astype(float)
 
-min_max_scaler = preprocessing.MinMaxScaler()
+min_max_scaler_abv = preprocessing.MinMaxScaler()
+min_max_scaler_ibu = preprocessing.MinMaxScaler()
+min_max_scaler_srm = preprocessing.MinMaxScaler()
 
-df_simplified['abv_norm'] = min_max_scaler.fit_transform(X_norm)
-df_simplified['ibu_norm'] = min_max_scaler.fit_transform(Y_norm)
-df_simplified['srm_norm'] = min_max_scaler.fit_transform(Z_norm)
+min_max_scaler_abv.fit(X_norm)
+min_max_scaler_ibu.fit(Y_norm)
+min_max_scaler_srm.fit(Z_norm)
+
+df_simplified['abv_norm'] = min_max_scaler_abv.transform(X_norm)
+df_simplified['ibu_norm'] = min_max_scaler_ibu.transform(Y_norm)
+df_simplified['srm_norm'] = min_max_scaler_srm.transform(Z_norm)
+
 
 # print(df_simplified['abv_norm'])
 
@@ -88,37 +95,33 @@ clf = neighbors.KNeighborsClassifier(20)
 clf.fit(X_train, y_train)
 
 accuracy = clf.score(X_test, y_test)
-print(accuracy)
-
+print('ACCURACY: ', accuracy)
 
 example_measures = np.array(
-    [[0.072, 0.1, 0.1], [0.052, 30.0, 5.0], [0.042, 45.0, 65.0]])
+    [[0.072, 60.0, 5.0], [0.052, 30.0, 5.0], [0.042, 45.0, 65.0]])
+
+for group in example_measures:
+    group[0] = min_max_scaler_abv.transform(group[0])
+    group[1] = min_max_scaler_ibu.transform(group[1])
+    group[2] = min_max_scaler_srm.transform(group[2])
 
 prediction = clf.predict(example_measures)
-print(prediction)
-
-nbrs = NearestNeighbors(n_neighbors=3, algorithm='ball_tree').fit(X)
+print('PREDICTION: ', prediction)
 
 
-def whoistheneighbour(i):
-    coordinates = [[df_simplified.iloc[i]['abv'],
-                    df_simplified.iloc[i]['ibu'], df_simplified.iloc[i]['srm']]]
+nbrs = NearestNeighbors(n_neighbors=5, algorithm='ball_tree').fit(X)
+
+def whoIsTheNeighbour(i):
+    coordinates = [[df_simplified.iloc[i]['abv_norm'],
+                    df_simplified.iloc[i]['ibu_norm'], df_simplified.iloc[i]['srm_norm']]]
     distances, indices = nbrs.kneighbors(coordinates)
-    # return indices
-    print('********origi********', df_simplified.iloc[i])
-    for item in indices[0]:
+    print('********origi********')
+    print(df_simplified.iloc[i])
+    for i, item in enumerate(indices[0]):
         print('********neighbour************')
         print(df_simplified.iloc[item])
-        
+        print('distance: ', distances[0][i])
 
 
-whoistheneighbour(162)
-whoistheneighbour(723)
-
-
-# print(indices[0:5], distances[0:5])
-# print(df_simplified[0:1])
-# print(df_simplified.iloc[0])
-# print(df_simplified.iloc[151])
-# print(df_simplified.iloc[148])
-
+whoIsTheNeighbour(1)
+whoIsTheNeighbour(21)
